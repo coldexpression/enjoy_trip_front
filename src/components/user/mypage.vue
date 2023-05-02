@@ -16,7 +16,7 @@
               아이디<br /><input
                 type="text"
                 name="id"
-                value="${userInfo.id}"
+                v-bind:value="$store.getters.getUserId"
                 autofocus
                 readonly
                 id="id"
@@ -28,7 +28,7 @@
                 type="email"
                 name="email"
                 id="email"
-                value="${userInfo.email}"
+                v-bind:value="$store.getters.getUserEmail"
                 placeholder=" 이메일"
               />
             </p>
@@ -65,7 +65,6 @@
                 type="checkbox"
                 id="advertisement"
                 name="advertisement"
-                checked="${userInfo.advertisement}"
               /><label for="advertisement">
                 특가항공권 및 할인 혜택안내 동의(선택)</label
               >

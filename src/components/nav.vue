@@ -29,18 +29,22 @@
             </li>
           </ul>
           <ul class="login_menu">
-            <li>
-              <router-link to="/login">로그인</router-link>
-            </li>
-            <li>
-              <router-link to="/register">회원가입</router-link>
-            </li>
-            <li>
-              <router-link to="/mypage">마이페이지</router-link>
-            </li>
-            <li>
-              <a href="#">로그아웃</a>
-            </li>
+            <div v-if="$store.getters.getLoginState">
+              <li>
+                <router-link to="/mypage">마이페이지</router-link>
+              </li>
+              <li>
+                <a href="#" v-on:click="$store.commit(`logout`)">로그아웃</a>
+              </li>
+            </div>
+            <div v-else>
+              <li>
+                <router-link to="/login">로그인</router-link>
+              </li>
+              <li>
+                <router-link to="/register">회원가입</router-link>
+              </li>
+            </div>
           </ul>
         </div>
       </nav>
@@ -69,7 +73,7 @@
 </style> -->
 
 <script>
-import { navJs } from "@/assets/js/navJs";
+import { imgLoad, loginCheck } from "@/assets/js/navJs";
 
-export default navJs;
+export { imgLoad, loginCheck };
 </script>

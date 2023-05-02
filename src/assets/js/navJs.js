@@ -1,5 +1,5 @@
-export const navJs = {
-  name: "navJs",
+export const imgLoad = {
+  name: "imgLoad",
   data: () => {
     return {
       obj: [
@@ -41,5 +41,40 @@ export const navJs = {
         }
       ]
     };
+  }
+};
+
+export const loginCheck = {
+  name: "loginCheck",
+  data: () => ({
+    userInfo: {
+      userId: "",
+      userEmail: "",
+      check: false
+    }
+  }),
+  computed: {
+    getUserInfo: () => {
+      console.log("호출됨?");
+      return sessionStorage.length !== 0;
+    }
+  },
+  watch: {
+    getUser: newUser => {
+      console.log("유저 정보 변경");
+      console.log(newUser);
+    }
+  },
+  methods: {
+    onLoad: () => {
+      if (sessionStorage.getItem("userInfo")) {
+        const sessionUserInfo = sessionStorage.getItem("userInfo");
+        console.log("nav 접근 : ", sessionUserInfo);
+        this.userInfo.check = true;
+        this.userInfo.userId = sessionUserInfo.id;
+        this.userInfo.userEmail = sessionUserInfo.email;
+        console.log(this.userInfo);
+      }
+    }
   }
 };
