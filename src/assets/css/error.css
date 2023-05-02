@@ -1,0 +1,8 @@
+@charset "EUC-KR";
+
+
+.error {
+
+  height: calc(100vh - 351px);
+  padding-bottom: 100px;
+}

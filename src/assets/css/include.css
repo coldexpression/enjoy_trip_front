@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+ul {
+  list-style-type: none;
+}
+/* ------ header css ------ */
+header {
+  margin-left: 170px;
+  margin-right: 170px;
+}
+
+/* header 첫번째 줄 */
+
+header {
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 15px;
+  height: 114px;
+}
+
+.first_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-left: 90px;
+}
+
+.logo_menu {
+  display: flex;
+  align-items: center;
+}
+
+.login_menu {
+  display: flex;
+  align-items: center;
+  padding-right: 60px;
+}
+
+.login_menu > li > a {
+  display: inline-block;
+  padding-right: 30px;
+}
+
+/*검색 관련*/
+.search {
+  position: relative;
+  width: 300px;
+  margin-left: 30px;
+}
+
+.search > input {
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+#search_img {
+  position: absolute;
+  width: 20px;
+  top: 9px;
+  right: -10px;
+  margin: 0;
+}
+
+/* header 두번째 줄 */
+.user_menu {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.user_menu_item {
+  /* margin-top: 20px; */
+  /*font-weight: 600;*/
+  font-weight: 1200;
+}
+
+/* ------ footer css ------*/
+footer {
+  margin-top: 30px;
+  height: 40px;
+  padding-top: 30px;
+
+  text-align: right;
+  padding-right: 100px;
+
+  background-color: black;
+  color: white;
+}

@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+
+/* ------ main css ------ */
+#mainPhrases {
+  font-weight: 600;
+  margin-top: 30px;
+  margin-left: 280px;
+}
+
+/* main 세션 1- 메인 이미지 */
+
+.travel_img {
+  padding-top: 20px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.travel_img > ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.travel_img img {
+  width: 300px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+/* 이미지 안 텍스트 관련 */
+.text_img {
+  position: relative;
+  color: white;
+}
+
+.img_text {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  /* color: white; */
+  font-size: 30px;
+  font-weight: 600;
+  text-shadow: 1px 2px black;
+}
+
+.enter_btn {
+  position: absolute;
+  top: 80%;
+  right: 0%;
+  transform: translate(-50%, -50%);  border: none;
+  width: 75px;
+  height: 30px;
+  border-radius: 5px;
+  font-weight: 800;
+  color: #777777;
+	cursor:pointer;
+}
+
+/* 메인 세션2 - 슬라이드 */
+/* html {
+  border-top: 5px solid #fff;
+  color: #2a2a2a;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans";
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  font-weight: 300;
+} */
+
+#slider {
+  position: relative;
+  overflow: hidden;
+  margin: 30px auto 0 auto;
+  border-radius: 5px;
+  width: 1330px;
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 200px;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 1330px;
+  height: 400px;
+  background-position: center; /*그림 가운데 정렬*/
+  background-size: cover; /*그림 짤릴 때 꽉 채우기*/
+  text-align: center;
+  line-height: 300px;
+}
+
+/*슬라이드 사진 관련*/
+#slide_one {
+  background-image: url("../img/slide1.png");
+}
+
+#slide_two {
+  background-image: url("../img/slide2.png");
+}
+
+#slide_three {
+  background-image: url("../img/slide3.png");
+}
+
+#slide_four {
+  background-image: url("../img/slide4.png");
+}
+
+a.control_prev,
+a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: lightgrey;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.control_prev:hover,
+a.control_next:hover {
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+a.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.slider_option {
+  position: relative;
+  margin: 10px auto;
+  width: 160px;
+  font-size: 18px;
+}
