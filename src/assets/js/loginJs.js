@@ -1,6 +1,10 @@
 import router from "../../router";
 import axios from "../js/axios";
-export const loginFunc = {
+import { mapGetters } from "vuex";
+
+const userStore = "userStore";
+
+export default {
   data: () => {
     return {
       id: "",
@@ -8,34 +12,18 @@ export const loginFunc = {
       loginCheck: false
     };
   },
+  computed: {
+    ...mapGetters(userStore, {
+      storeUserName: "GET_USER_NAME",
+      storeUserEmail: "GET_USER_EMAIL",
+      storeLoginState: "GET_LOGIN_STATE"
+    })
+  },
   methods: {
     submitForm(event) {
       console.log(this);
       console.log(event.target.id.value);
-      const target = event.target;
-      var data = {
-        id: this.id.value,
-        pwd: this.pwd.value
-      };
-      axios
-        .post("user/login", data)
-        .then(response => {
-          console.log("로그인 성공");
-          console.log(response.data);
-          sessionStorage.setItem("userInfo", response.data);
-          console.log(this.$store);
-          const resultUser = {
-            userId: response.data.id,
-            userEmail: response.data.email,
-            isCheck: true
-          };
-          this.$store.commit("login", resultUser);
-          router.push("/");
-          console.log(this.$store.getters.getLoginState);
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      this.$store.dispatch(`${userStore}/AC_USER_LOGIN`, event.target);
     }
   }
 };

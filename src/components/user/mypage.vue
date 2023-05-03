@@ -4,22 +4,16 @@
       <h1>마이페이지</h1>
 
       <section class="section">
-        <form
-          action="${pageContext.request.contextPath}/UserController"
-          method="post"
-          id="userInfo"
-        >
+        <form v-on:submit.prevent="submitEdit" method="post">
           <div class="info">
-            <input type="hidden" id="pw" value="${userInfo.pwd}" />
             <h2>기존정보 변경하기</h2>
             <p>
               아이디<br /><input
                 type="text"
-                name="id"
-                v-bind:value="$store.getters.getUserId"
+                name="editUserId"
                 autofocus
                 readonly
-                id="id"
+                v-bind:value="storeUserId"
                 placeholder=" 아이디를 입력하시오"
               />
             </p>
@@ -27,8 +21,8 @@
               이메일<br /><input
                 type="email"
                 name="email"
-                id="email"
-                v-bind:value="$store.getters.getUserEmail"
+                readonly
+                v-bind:value="storeUserEmail"
                 placeholder=" 이메일"
               />
             </p>
@@ -37,24 +31,24 @@
             <p>
               기존 비밀번호<br /><input
                 type="password"
-                name="oldpwd"
-                id="oldpwd"
+                name="pwd"
+                v-model="pwd"
                 placeholder="기존 비밀번호"
               />
             </p>
             <p>
               비밀번호<br /><input
                 type="password"
-                name="pwd"
-                id="pwd"
+                name="newPwd"
+                v-model="newPwd"
                 placeholder=" 비밀번호"
               />
             </p>
             <p>
               비밀번호 확인<br /><input
                 type="password"
-                name="pwd2"
-                id="pwd2"
+                name="newPwdConfirm"
+                v-model="newPwdConfirm"
                 placeholder=" 비밀번호 확인"
               />
             </p>
@@ -78,3 +72,8 @@
     </div>
   </main>
 </template>
+
+<script>
+import myPage from "@/assets/js/myPageJs";
+export default myPage;
+</script>

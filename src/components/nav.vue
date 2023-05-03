@@ -28,8 +28,8 @@
               </div>
             </li>
           </ul>
-          <ul class="login_menu">
-            <div v-if="$store.getters.getLoginState">
+          <ul id="loginNav" class="login_menu">
+            <div v-if="storeLoginState">
               <li>
                 <router-link to="/mypage">마이페이지</router-link>
               </li>
@@ -50,7 +50,11 @@
       </nav>
       <nav>
         <ul class="user_menu">
-          <li v-for="(item, index) in obj" :key="index" class="user_menu_item">
+          <li
+            v-for="(item, index) in imges"
+            :key="index"
+            class="user_menu_item"
+          >
             <a href="#">
               <img
                 :src="item.img"
@@ -73,7 +77,7 @@
 </style> -->
 
 <script>
-import { imgLoad, loginCheck } from "@/assets/js/navJs";
-
-export { imgLoad, loginCheck };
+import initState from "@/assets/js/navJs";
+console.log(initState);
+export default initState;
 </script>

@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { loginFunc } from "@/assets/js/loginJs";
+import loginFunc from "@/assets/js/loginJs";
 console.log(loginFunc);
 export default loginFunc;
 </script>
