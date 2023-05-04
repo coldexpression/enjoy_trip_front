@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-@import "../src/assets/css/index.css";
+/* @import "../src/assets/css/index.css";
 @import "../src/assets/css/include.css";
-@import "../src/assets/css/user.css";
+@import "../src/assets/css/user.css"; */
 </style>

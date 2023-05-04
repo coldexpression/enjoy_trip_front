@@ -5,6 +5,12 @@ import Vue from "vue";
 import App from "./App";
 import router from "./router";
 import Vuex from "vuex";
+// import "./assets/css/detail.css";
+// import "./assets/css/error.css";
+// import "./assets/css/include.css";
+// import "./assets/css/index.css";
+// import "./assets/css/map.css";
+// import "./assets/css/user.css";
 
 Vue.config.productionTip = false;
 

@@ -28,13 +28,13 @@
               </div>
             </li>
           </ul>
-          <ul id="loginNav" class="login_menu">
+          <ul class="login_menu">
             <div v-if="storeLoginState">
               <li>
                 <router-link to="/mypage">마이페이지</router-link>
               </li>
               <li>
-                <a href="#" v-on:click="$store.commit(`logout`)">로그아웃</a>
+                <a href="#" v-on:click="userLogout">로그아웃</a>
               </li>
             </div>
             <div v-else>
@@ -81,3 +81,7 @@ import initState from "@/assets/js/navJs";
 console.log(initState);
 export default initState;
 </script>
+
+<style scoped>
+@import "../assets/css/include.css";
+</style>

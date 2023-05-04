@@ -5,13 +5,28 @@
     <!--메인 세션1 TOP 4 관광지-->
     <section class="travel_img">
       <ul>
-        <div v-for="(item, index) in obj" :key="index" class="text_img">
+        <div
+          v-for="(item, index) in storeAttractionTopInfo"
+          :key="index"
+          class="text_img"
+        >
           <li>
-            <img :src="item.img" />
+            <img :src="item.first_image" />
             <a class="img_text" href="#">{{ item.title }}</a>
-            <a href="#"
-              ><button class="enter_btn" type="button">둘러보기</button></a
-            >
+            <a href="#">
+              <router-link
+                :to="{
+                  name: 'AttractionDetail',
+                  params: {
+                    contentId: item.content_id
+                  }
+                }"
+              >
+                <button class="enter_btn" type="button">
+                  둘러보기
+                </button>
+              </router-link>
+            </a>
           </li>
         </div>
       </ul>
@@ -103,49 +118,55 @@
 </template>
 
 <script>
-export default {
-  name: "HelloWorld",
-  data: () => {
-    return {
-      obj: [
-        {
-          img: require("@/assets/img/jeju.png"),
-          title: "제주"
-        },
-        {
-          img: require("@/assets/img/seoul.png"),
-          tilte: "서울"
-        },
-        {
-          img: require("@/assets/img/gangwondo.png"),
-          title: "강원도"
-        },
-        {
-          img: require("@/assets/img/busan.png"),
-          title: "부산"
-        },
-        {
-          img: require("@/assets/img/daejeon.png"),
-          title: "대전"
-        },
-        {
-          img: require("@/assets/img/daegu.png"),
-          title: "대구"
-        },
-        {
-          img: require("@/assets/img/gwangju.png"),
-          title: "광주"
-        },
-        {
-          img: require("@/assets/img/gyeongju.png"),
-          title: "경주"
-        }
-      ]
-    };
-  }
-};
+import router from "../router";
+import mainJs from "../assets/js/mainJs";
+export default mainJs;
+// export default {
+//   name: "main",
+//   data: () => {
+//     return {
+//       obj: [
+//         {
+//           img: require("@/assets/img/jeju.png"),
+//           title: "제주"
+//         },
+//         {
+//           img: require("@/assets/img/seoul.png"),
+//           tilte: "서울"
+//         },
+//         {
+//           img: require("@/assets/img/gangwondo.png"),
+//           title: "강원도"
+//         },
+//         {
+//           img: require("@/assets/img/busan.png"),
+//           title: "부산"
+//         },
+//         {
+//           img: require("@/assets/img/daejeon.png"),
+//           title: "대전"
+//         },
+//         {
+//           img: require("@/assets/img/daegu.png"),
+//           title: "대구"
+//         },
+//         {
+//           img: require("@/assets/img/gwangju.png"),
+//           title: "광주"
+//         },
+//         {
+//           img: require("@/assets/img/gyeongju.png"),
+//           title: "경주"
+//         }
+//       ]
+//     };
+//   }
+// };
 </script>
 
+<style scoped>
+@import "../assets/css/index.css";
+</style>
 <!-- <script>
 export default {
   name: "HelloWorld",

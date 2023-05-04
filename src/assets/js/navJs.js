@@ -54,8 +54,8 @@ export default {
   },
   watch: {},
   methods: {
-    setLoginCheck: function() {
-      this.loginCheck = this.storeLoginState;
+    userLogout() {
+      this.$store.dispatch(`${userStore}/AC_USER_LOGOUT`);
     }
   }
 };

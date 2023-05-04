@@ -6,6 +6,6 @@
   </div>
 </template>
 
-<!-- <style>
+<style>
 @import "../assets/css/include.css";
-</style> -->
+</style>

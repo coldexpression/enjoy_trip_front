@@ -77,3 +77,7 @@
 import myPage from "@/assets/js/myPageJs";
 export default myPage;
 </script>
+
+<style>
+@import "../../assets/css/user.css";
+</style>

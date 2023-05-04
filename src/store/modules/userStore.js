@@ -24,13 +24,6 @@ const userStore = {
       state.userInfo.isCheck = false;
     }
   },
-  MU_LOGCHECK(state) {
-    if (state.isCheck) {
-      console.log("로그인 안함");
-    } else {
-      console.log("로그인 함");
-    }
-  },
   // 공동의 상태를 계산하여 state의 값을 반환
   getters: {
     GET_LOGIN_STATE: state => {
@@ -74,11 +67,14 @@ const userStore = {
         .catch(e => {
           console.log(e);
           console.log("로그인 실패!");
+          alert("로그인 실패");
         });
     },
     AC_USER_LOGOUT: (context, payload) => {
       console.log("AC_USER_LOGOUT!");
+      context.commit("MU_LOGOUT");
       console.log(payload);
+      router.push("/");
     },
     AC_USER_EDIT: (context, payload) => {
       console.log("AC_USER_EDIT!");
@@ -108,6 +104,7 @@ const userStore = {
         .catch(e => {
           console.log(e);
           console.log("회원 수정 실패");
+          alert("회원 정보 수정 실패");
         });
     }
   }

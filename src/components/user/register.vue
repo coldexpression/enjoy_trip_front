@@ -102,3 +102,7 @@
     </main>
   </div>
 </template>
+
+<style>
+@import "../../assets/css/user.css";
+</style>

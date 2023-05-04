@@ -36,14 +36,10 @@
                 /><label for="remainLogin"> 아이디 기억하기</label>
               </p>
               <router-link to="/register">
-                <a href="${pageContext.request.contextPath}/user/signin.jsp">
-                  아직 회원이 아니신가요?</a
-                >
+                <a href=""> 아직 회원이 아니신가요?</a>
               </router-link>
               <router-link to="/register">
-                <a href="${pageContext.request.contextPath}/user/signin.jsp"
-                  >이메일로 회원가입
-                </a>
+                <a href="">이메일로 회원가입 </a>
               </router-link>
             </div>
             <input type="submit" class="submit" value="로그인" />
@@ -59,3 +55,7 @@ import loginFunc from "@/assets/js/loginJs";
 console.log(loginFunc);
 export default loginFunc;
 </script>
+
+<style>
+@import "../../assets/css/user.css";
+</style>
