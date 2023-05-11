@@ -37,12 +37,15 @@
 
 .img_text {
   position: absolute;
-  top: 10%;
-  left: 25%;
-  transform: translate(-50%, -50%);
-  /* color: white; */
+  top: 0;
+  left: 0;
+  margin-top: 1%;
+  margin-left: 2%;
+  /* transform: translate(-50%, -50%); */
+  color: white;
   font-size: 20px;
   font-weight: 600;
+  text-decoration: none;
   text-shadow: 1px 2px black;
 }
 
@@ -61,70 +64,35 @@
 }
 
 /* 메인 세션2 - 슬라이드 */
-/* html {
-  border-top: 5px solid #fff;
-  color: #2a2a2a;
+
+.no-shadow {
+  width: 80%;
+  height: 55%;
+  margin-left: 1%;
+  background-color: white;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Open Sans";
-}
-
-h1 {
-  color: #fff;
-  text-align: center;
-  font-weight: 300;
+/* .attraction_slide {
+  background-color: white;
 } */
 
-a {
+.attraction_slide_img {
+  border-radius: 10px;
+  width: 99%;
+  height: 100%;
+}
+
+.attraction_slide > a {
+  color: while;
+  text-decoration: none;
+}
+
+/* a {
   text-decoration: none !important;
   color: inherit !important;
-}
+} */
 
 #carousel-1 {
   height: 50%;
   width: 80%;
-}
-
-/* 슬라이드 */
-.Wrapper {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  /* overflow: hidden; */
-}
-.imageContainer {
-  display: flex;
-  transition: 0.6s;
-}
-.image {
-  height: 300px;
-  width: 300px;
-  background-size: cover;
-  background-position: center center;
-}
-
-.left {
-  position: absolute;
-  left: 5px;
-  top: 50%;
-  cursor: pointer;
-}
-
-.right {
-  position: absolute;
-  right: 5px;
-  top: 50%;
-
-  cursor: pointer;
-}
-svg {
-  z-index: 2;
-  color: rgba(0, 0, 0, 0.2);
-}
-.hidden {
-  display: hidden;
 }

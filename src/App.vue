@@ -10,15 +10,11 @@
 <script>
 import Navbar from "./components/nav.vue";
 import Footer from "./components/footer.vue";
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
 export default {
   name: "App",
   components: {
     Navbar,
-    Footer,
-    VueperSlides,
-    VueperSlide
+    Footer
   }
 };
 </script>

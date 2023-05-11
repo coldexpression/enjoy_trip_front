@@ -1,8 +1,14 @@
 import { mapGetters } from "vuex";
+import { VueperSlides, VueperSlide } from "vueperslides";
+import "vueperslides/dist/vueperslides.css";
 
 const attractionStore = "attractionStore";
 
 export default {
+  components: {
+    VueperSlides,
+    VueperSlide
+  },
   data() {
     return {
       mainImg: [
@@ -21,16 +27,22 @@ export default {
         {
           cityName: "강원",
           url: require("../../assets/img/gangwondo.png")
-        }
-      ],
-      slides: [
-        {
-          title: "Slide #1",
-          content: "Slide 1 content."
         },
         {
-          title: "Slide #2",
-          content: "Slide 2 content."
+          cityName: "대구",
+          url: require("../../assets/img/daegu.png")
+        },
+        {
+          cityName: "대전",
+          url: require("../../assets/img/daejeon.png")
+        },
+        {
+          cityName: "경주",
+          url: require("../../assets/img/gyeongju.png")
+        },
+        {
+          cityName: "광주",
+          url: require("../../assets/img/gwangju.png")
         }
       ]
     };

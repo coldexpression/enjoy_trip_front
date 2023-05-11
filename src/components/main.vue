@@ -32,8 +32,43 @@
       </ul>
     </section>
 
-    <vueper-slides>
-      <vueper-slide v-for="i in 5" :key="i" :title="i.toString()" />
+    <h1 id="mainPhrases">지역 관광지</h1>
+    <!-- 슬라이드-->
+    <vueper-slides
+      class="no-shadow"
+      :visible-slides="4"
+      slide-multiple
+      :gap="2"
+      :slide-ratio="1 / 4"
+      :dragging-distance="200"
+      :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
+    >
+      <vueper-slide
+        class="attraction_slide"
+        v-for="(item, index) in mainImg"
+        :key="index"
+        :title="item.cityName"
+        :content="item.cityName"
+      >
+        <template v-slot:content>
+          <img class="attraction_slide_img" :src="item.url" />
+          <a class="img_text" href="#">{{ item.cityName }}</a>
+          <a href="#">
+            <router-link
+              :to="{
+                name: 'AttractionDetail',
+                params: {
+                  contentId: item.content_id
+                }
+              }"
+            >
+              <button class="enter_btn" type="button">
+                둘러보기
+              </button>
+            </router-link>
+          </a>
+        </template>
+      </vueper-slide>
     </vueper-slides>
 
     <h1 id="mainPhrases">지역 관광지</h1>
