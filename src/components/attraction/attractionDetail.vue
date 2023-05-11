@@ -66,11 +66,8 @@
             </li>
             <li class="detail_title">주소</li>
             <li class="detail_content">
-              {{ storeAttractionDetailInfo.addr1
-              }}<a
-                href="${pageContext.request.contextPath}/attraction?param=location&content_id=${attraction.content_id}"
-                ><i class="fa-sharp fa-solid fa-map-location-dot"></i
-              ></a>
+              {{ storeAttractionDetailInfo.addr1 }}
+              <font-awesome-icon :icon="['fas', 'location-dot']" />
             </li>
           </ul>
         </li>
@@ -101,6 +98,6 @@ import attractionDetailJs from "@/assets/js/attractionDetailJs";
 export default attractionDetailJs;
 </script>
 
-<style>
+<style scoped>
 @import "../../assets/css/detail.css";
 </style>

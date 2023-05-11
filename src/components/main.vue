@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="main">
     <h1 id="mainPhrases">관광지 인기순위</h1>
 
     <!--메인 세션1 TOP 4 관광지-->
@@ -32,8 +32,39 @@
       </ul>
     </section>
 
+    <vueper-slides>
+      <vueper-slide v-for="i in 5" :key="i" :title="i.toString()" />
+    </vueper-slides>
+
+    <h1 id="mainPhrases">지역 관광지</h1>
+    <!--메인 세션2 지역 관광지 -->
+    <section class="travel_img">
+      <ul>
+        <div v-for="(item, index) in mainImg" :key="index" class="text_img">
+          <li>
+            <img :src="item.url" />
+            <a class="img_text" href="#">{{ item.cityName }}</a>
+            <a href="#">
+              <router-link
+                :to="{
+                  name: 'AttractionDetail',
+                  params: {
+                    contentId: index
+                  }
+                }"
+              >
+                <button class="enter_btn" type="button">
+                  둘러보기
+                </button>
+              </router-link>
+            </a>
+          </li>
+        </div>
+      </ul>
+    </section>
+
     <!--메인 세션2 슬라이드-->
-    <h1 id="mainPhrases">국내 대표 관광지</h1>
+    <!-- <h1 id="mainPhrases">국내 대표 관광지</h1>
     <section>
       <div id="slider">
         <a href="#" class="control_next"> 오 </a>
@@ -44,13 +75,13 @@
           <li id="slide_three"></li>
           <li id="slide_four"></li>
         </ul>
-      </div>
+      </div> -->
 
-      <div class="slider_option">
-        <!-- <input type="checkbox" id="checkbox" /> -->
-        <!-- <label for="checkbox">자동 넘김</label> -->
-      </div>
-    </section>
+    <!-- <div class="slider_option">  -->
+    <!-- <input type="checkbox" id="checkbox" /> -->
+    <!-- <label for="checkbox">자동 넘김</label> -->
+    <!-- </div> -->
+    <!-- </section> -->
 
     <!--메인 세션3 관광지2-->
     <h1 id="mainPhrases">여기도 좋아요</h1>
