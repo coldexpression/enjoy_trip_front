@@ -56,6 +56,6 @@ console.log(loginFunc);
 export default loginFunc;
 </script>
 
-<style>
+<style scoped>
 @import "../../assets/css/user.css";
 </style>

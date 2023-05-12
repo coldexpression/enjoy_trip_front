@@ -78,6 +78,6 @@ import myPage from "@/assets/js/myPageJs";
 export default myPage;
 </script>
 
-<style>
+<style scoped>
 @import "../../assets/css/user.css";
 </style>

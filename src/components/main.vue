@@ -62,7 +62,7 @@
                 }
               }"
             >
-              <button class="enter_btn" type="button">
+              <button class="attraction_slid_enter_btn" type="button">
                 둘러보기
               </button>
             </router-link>
@@ -70,33 +70,6 @@
         </template>
       </vueper-slide>
     </vueper-slides>
-
-    <h1 id="mainPhrases">지역 관광지</h1>
-    <!--메인 세션2 지역 관광지 -->
-    <section class="travel_img">
-      <ul>
-        <div v-for="(item, index) in mainImg" :key="index" class="text_img">
-          <li>
-            <img :src="item.url" />
-            <a class="img_text" href="#">{{ item.cityName }}</a>
-            <a href="#">
-              <router-link
-                :to="{
-                  name: 'AttractionDetail',
-                  params: {
-                    contentId: index
-                  }
-                }"
-              >
-                <button class="enter_btn" type="button">
-                  둘러보기
-                </button>
-              </router-link>
-            </a>
-          </li>
-        </div>
-      </ul>
-    </section>
 
     <!--메인 세션2 슬라이드-->
     <!-- <h1 id="mainPhrases">국내 대표 관광지</h1>
