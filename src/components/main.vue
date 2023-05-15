@@ -11,22 +11,18 @@
           class="text_img"
         >
           <li>
-            <img :src="item.firstImage" />
-            <a class="img_text" href="#">{{ item.title }}</a>
-            <a href="#">
-              <router-link
-                :to="{
-                  name: 'AttractionDetail',
-                  params: {
-                    contentId: item.contentId
-                  }
-                }"
-              >
-                <button class="enter_btn" type="button">
-                  둘러보기
-                </button>
-              </router-link>
-            </a>
+            <router-link
+              :to="{
+                name: 'AttractionDetail',
+                params: {
+                  contentId: item.contentId
+                }
+              }"
+            >
+              <img :src="item.firstImage" />
+              <a class="img_text" href="#">{{ item.title }}</a>
+              <a href="#"></a>
+            </router-link>
           </li>
         </div>
       </ul>
@@ -38,7 +34,7 @@
       class="no-shadow"
       :visible-slides="4"
       slide-multiple
-      :gap="2"
+      :gap="1"
       :slide-ratio="1 / 4"
       :dragging-distance="200"
       :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
@@ -52,7 +48,7 @@
       >
         <template v-slot:content>
           <img class="attraction_slide_img" :src="item.url" />
-          <a class="img_text" href="#">{{ item.cityName }}</a>
+          <a class="attraction_slid_img_text" href="#">{{ item.cityName }}</a>
           <a href="#">
             <router-link
               :to="{
@@ -92,7 +88,7 @@
     <!-- </section> -->
 
     <!--메인 세션3 관광지2-->
-    <h1 id="mainPhrases">여기도 좋아요</h1>
+    <h1 id="mainPhrases">나의 여행지</h1>
     <section class="travel_img">
       <ul>
         <!-- <div class="text_img">
@@ -157,67 +153,10 @@
 </template>
 
 <script>
-import router from "../router";
 import mainJs from "../assets/js/mainJs";
 export default mainJs;
-// export default {
-//   name: "main",
-//   data: () => {
-//     return {
-//       obj: [
-//         {
-//           img: require("@/assets/img/jeju.png"),
-//           title: "제주"
-//         },
-//         {
-//           img: require("@/assets/img/seoul.png"),
-//           tilte: "서울"
-//         },
-//         {
-//           img: require("@/assets/img/gangwondo.png"),
-//           title: "강원도"
-//         },
-//         {
-//           img: require("@/assets/img/busan.png"),
-//           title: "부산"
-//         },
-//         {
-//           img: require("@/assets/img/daejeon.png"),
-//           title: "대전"
-//         },
-//         {
-//           img: require("@/assets/img/daegu.png"),
-//           title: "대구"
-//         },
-//         {
-//           img: require("@/assets/img/gwangju.png"),
-//           title: "광주"
-//         },
-//         {
-//           img: require("@/assets/img/gyeongju.png"),
-//           title: "경주"
-//         }
-//       ]
-//     };
-//   }
-// };
 </script>
 
 <style scoped>
 @import "../assets/css/index.css";
 </style>
-<!-- <script>
-export default {
-  name: "HelloWorld",
-  data() {
-    return {
-      msg: "Welcome to Your Vue.js App"
-    };
-  }
-};
-</script> -->
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<!-- <style>
-@import "../assets/css/index.css";
-</style> -->

@@ -43,12 +43,13 @@ div > header {
 
 .login_menu {
   display: flex;
-  align-items: center;
+  align-content: center;
   padding-right: 60px;
 }
 
 .login_menu > li {
-  display: inline-block;
+  /* display: flex;
+  align-content: center; */
   padding-right: 30px;
 }
 
@@ -79,6 +80,7 @@ div > header {
 .user_menu {
   margin-top: 15px;
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
 }
 
@@ -89,7 +91,7 @@ div > header {
 }
 
 /* ------ footer css ------*/
-footer {
+.footer {
   height: 5rem;
   background-color: black;
 }

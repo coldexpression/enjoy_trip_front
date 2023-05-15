@@ -1,5 +1,5 @@
 <template>
-  <footer>footer</footer>
+  <footer class="footer">footer</footer>
 </template>
 
 <style scoped>

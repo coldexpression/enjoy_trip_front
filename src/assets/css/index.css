@@ -15,7 +15,7 @@
 
 .travel_img {
   padding-top: 20px;
-  width: 70%;
+  width: 110%;
 }
 
 .travel_img > ul {
@@ -27,6 +27,16 @@
   width: 300px;
   height: 250px;
   border-radius: 10px;
+
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.8s ease-in-out;
+  transition: 0.8s ease-in-out;
+}
+
+.travel_img img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* 이미지 안 텍스트 관련  */
@@ -70,10 +80,10 @@
 /* 메인 세션2 - 슬라이드 */
 
 .no-shadow {
-  width: 80%;
+  width: 85%;
   height: 55%;
   margin-top: 1%;
-  margin-left: 2%;
+  margin-left: 0.5%;
   background-color: white;
 }
 
@@ -83,8 +93,34 @@
 
 .attraction_slide_img {
   border-radius: 10px;
-  width: 300px;
-  height: 250px;
+  width: 305px;
+  height: 255px;
+  margin-top: 10%;
+  margin-left: 5%;
+
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.8s ease-in-out;
+  transition: 0.8s ease-in-out;
+}
+
+.attraction_slide_img:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.attraction_slid_img_text {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  margin-top: 1%;
+  margin-left: 2%;
+  /* transform: translate(-50%, -50%); */
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 1px 2px black;
 }
 
 .attraction_slide > a {
