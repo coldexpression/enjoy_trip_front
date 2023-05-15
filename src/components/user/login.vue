@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="wrapper">
     <main class="login">
       <div class="content">
-        <h1>로그인</h1>
         <section class="section">
           <form v-on:submit.prevent="submitForm" id="login">
             <div class="info">
+              <h1>로그인</h1>
               <p>
                 <input type="hidden" name="action" value="login" />
               </p>
@@ -18,6 +18,13 @@
                   v-model="id"
                 />
               </p>
+              <p class="remain">
+                <input
+                  type="checkbox"
+                  name="remainLogin"
+                  id="remainLogin"
+                /><label for="remainLogin"> 아이디 저장</label>
+              </p>
               <p>
                 비밀번호<br /><input
                   type="password"
@@ -26,23 +33,11 @@
                   v-model="pwd"
                 />
               </p>
+              <input type="submit" class="submit" value="로그인" />
+              <button @click="$router.push('/register')" class="regist_btn">
+                회원 가입
+              </button>
             </div>
-            <div class="option">
-              <p>
-                <input
-                  type="checkbox"
-                  name="remainLogin"
-                  id="remainLogin"
-                /><label for="remainLogin"> 아이디 기억하기</label>
-              </p>
-              <router-link to="/register">
-                <a href=""> 아직 회원이 아니신가요?</a>
-              </router-link>
-              <router-link to="/register">
-                <a href="">이메일로 회원가입 </a>
-              </router-link>
-            </div>
-            <input type="submit" class="submit" value="로그인" />
           </form>
         </section>
       </div>

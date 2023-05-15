@@ -56,7 +56,7 @@
         <li class="detail_list_item">
           <img
             class="detail_img"
-            v-bind:src="storeAttractionDetailInfo.first_image"
+            v-bind:src="storeAttractionDetailInfo.firstImage"
             onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpizjtvgskfw6Wuu2sLTi2_1vW1gJgFPFtMw&usqp=CAU';"
           />
           <ul>

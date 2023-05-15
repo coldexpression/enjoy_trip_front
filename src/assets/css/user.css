@@ -14,6 +14,10 @@ ul {
   list-style-type: none;
 }
 
+.wrapper {
+  min-height: calc(100vh - 10rem);
+}
+
 /* -- login -- */
 .login {
   height: calc(100vh - 351px);
@@ -22,14 +26,12 @@ ul {
 }
 
 .signin {
-
   min-height: 700px;
   padding-bottom: 100px;
 }
 
 .userInfo {
-
-  min-height:1000px;
+  min-height: 1000px;
   padding-bottom: 100px;
 }
 /*main 섹션*/
@@ -38,7 +40,7 @@ ul {
   width: 300px;
   position: absolute;
   left: 50%;
-  padding-top: 30px;
+  padding-top: 5%;
   transform: translate(-50%, 0%);
   padding-bottom: 30px;
   /* display: flex;
@@ -54,7 +56,6 @@ ul {
   padding-top: 40px;
 }
 
-
 /*사용자정보 */
 .info {
   border: 1px rgb(197, 197, 197) solid;
@@ -69,18 +70,42 @@ ul {
 
 .info > p {
   text-align: left;
-  margin: auto;
-  margin-top: 30px;
+  margin-left: 3%;
+  margin-top: 10px;
   width: 250px;
 }
 
 .info > p > input {
-  width: 250px;
+  width: 280px;
   height: 40px;
   border-radius: 5px;
   text-align: left;
   font-size: large;
-  margin-top: 5px;
+  margin-top: 1px;
+}
+
+.info > p > label {
+  font-size: 15px;
+}
+
+.remain {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  left: 0px;
+  /* width: 1px; */
+}
+
+#remainLogin {
+  zoom: 0.5;
+  width: 10%;
+  margin-right: 5%;
+  margin-left: 0%;
+}
+
+#advertisement {
+  zoom: 0.3;
+  display: inline-block;
 }
 /*로그인 옵션*/
 .option {
@@ -104,8 +129,9 @@ ul {
 
 /*버튼*/
 form .submit {
-  width: 300px;
+  width: 95%;
   height: 40px;
+  margin-left: 3%;
   margin-top: 50px;
   font-size: large;
   background-color: rgb(55, 224, 255);
@@ -119,7 +145,8 @@ form .submit {
 form .delete {
   width: 300px;
   height: 40px;
-  margin-top: 50px;
+  margin-left: 10%;
+  margin-top: 5%;
   font-size: large;
   background-color: rgb(255, 60, 60);
   color: white;
@@ -128,3 +155,15 @@ form .delete {
   cursor: pointer;
 }
 
+form .regist_btn {
+  width: 95%;
+  height: 40px;
+  margin-left: 3%;
+  margin-top: 5%;
+  font-size: large;
+  background-color: rgb(55, 224, 255);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}

@@ -3,6 +3,7 @@
 /* ------ main css ------ */
 .main {
   margin-left: 15%;
+  min-height: calc(100vh - 10rem);
 }
 #mainPhrases {
   font-weight: 600;

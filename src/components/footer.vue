@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <footer>
-      <div class="footer"><p>Footer</p></div>
-    </footer>
-  </div>
+  <footer>footer</footer>
 </template>
 
 <style scoped>

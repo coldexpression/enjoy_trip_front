@@ -11,14 +11,14 @@
           class="text_img"
         >
           <li>
-            <img :src="item.first_image" />
+            <img :src="item.firstImage" />
             <a class="img_text" href="#">{{ item.title }}</a>
             <a href="#">
               <router-link
                 :to="{
                   name: 'AttractionDetail',
                   params: {
-                    contentId: item.content_id
+                    contentId: item.contentId
                   }
                 }"
               >

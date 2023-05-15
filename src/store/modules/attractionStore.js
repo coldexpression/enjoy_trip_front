@@ -7,12 +7,12 @@ const attractionStore = {
   state: {
     topInfo: [],
     attractionDetail: {
-      content_id: "",
+      contentId: "",
       title: "",
       addr1: "",
       addr2: "",
-      first_image: "",
-      first_image2: "",
+      firstImage: "",
+      firstImage2: "",
       latitude: 0,
       longitude: 0,
       readCount: 0,
