@@ -8,7 +8,8 @@ const userStore = {
     userInfo: {
       userId: "",
       userEmail: "",
-      isCheck: false
+      isCheck: false,
+      bookMark: []
     }
   },
   // state를 변경시킬수 있는 유일한 방법
@@ -22,6 +23,10 @@ const userStore = {
       state.userInfo.userId = "";
       state.userInfo.userEmail = "";
       state.userInfo.isCheck = false;
+      state.userInfo.bookMark = [];
+    },
+    MU_LOAD_BOOKMARK(state, payload) {
+      state.userInfo.bookMark = payload;
     }
   },
   // 공동의 상태를 계산하여 state의 값을 반환
@@ -35,6 +40,10 @@ const userStore = {
     },
     GET_USER_EMAIL: state => {
       return state.userInfo.userEmail;
+    },
+    GET_USER_BOOKMARK: state => {
+      console.log("북마크 조회 값 : ", state.userInfo.bookMark);
+      return state.userInfo.bookMark;
     }
   },
   // actions 는 mutations 와 달리 비도기적 로직을 정의 할 수 있음
@@ -105,6 +114,25 @@ const userStore = {
           console.log(e);
           console.log("회원 수정 실패");
           alert("회원 정보 수정 실패");
+        });
+    },
+    AC_USER_LOAD_BOOKMARK: (context, payload) => {
+      console.log("AC_USER_LOAD_BOOKMARK !!");
+      console.log("유저 아이디 : " + payload);
+      axios
+        .get("attraction/userFavorite", {
+          params: {
+            userId: payload
+          }
+        })
+        .then(res => {
+          console.log("북마크 호출 성공");
+          console.log(res.data);
+          context.commit("MU_LOAD_BOOKMARK", res.data);
+        })
+        .catch(error => {
+          console.log("북마크 호출 실패");
+          console.log(error);
         });
     }
   }

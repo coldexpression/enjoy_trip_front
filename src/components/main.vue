@@ -88,67 +88,46 @@
     <!-- </section> -->
 
     <!--메인 세션3 관광지2-->
-    <h1 id="mainPhrases">나의 여행지</h1>
-    <section class="travel_img">
-      <ul>
-        <!-- <div class="text_img">
-          <li>
-            <img src="assets/img/daejeon.png" alt="daejeon" />
-            <a
-              href="${pageContext.request.contextPath}/attraction?param=listByTitle&title=대전"
-              class="img_text"
-              >대전</a
-            >
-            <a
-              href="${pageContext.request.contextPath}/attraction?param=listByTitle&title=대전"
-              ><button class="enter_btn" type="button">둘러보기</button></a
-            >
-          </li>
-        </div>
-        <div class="text_img">
-          <li>
-            <img src="assets/img/daegu.png" alt="daegu" />
-            <a
-              href="${pageContext.request.contextPath}/attraction?param=listByTitle&title=대구"
-              class="img_text"
-              >대구</a
-            >
-            <a
-              href="${pageContext.request.contextPath}/attraction?param=listByTitle&title=대구"
-              ><button class="enter_btn" type="button">둘러보기</button></a
-            >
-          </li>
-        </div>
-        <div class="text_img">
-          <li>
-            <img src="assets/img/gwangju.png" alt="gwangju" />
-            <a
-              href="${pageContext.request.contextPath}/attraction?param=listByTitle&title=광주"
-              class="img_text"
-              >광주</a
-            >
-            <a
-              href="${pageContext.request.contextPath}/attraction?param=listByTitle&title=광주"
-              ><button class="enter_btn" type="button">둘러보기</button></a
-            >
-          </li>
-        </div>
-        <div class="text_img">
-          <li>
-            <img src="assets/img/gyeongju.png" alt="gyeongju" />
-            <a
-              href="${pageContext.request.contextPath}/attraction?param=listByTitle&title=경주"
-              class="img_text"
-              >경주</a
-            >
-            <a
-              href="${pageContext.request.contextPath}/attraction?param=listByTitle&title=경주"
-              ><button class="enter_btn" type="button">둘러보기</button></a
-            >
-          </li>
-        </div> -->
-      </ul>
-    </section>
+
+    <div v-if="storeLoginState">
+      <h1 id="mainPhrases">나의 여행지</h1>
+      <vueper-slides
+        class="no-shadow"
+        :visible-slides="4"
+        slide-multiple
+        :gap="1"
+        :slide-ratio="1 / 4"
+        :dragging-distance="200"
+        :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
+      >
+        <vueper-slide
+          class="attraction_slide"
+          v-for="(item, index) in storeBookMarkInfo"
+          :key="index"
+          :title="item.cityName"
+          :content="item.cityName"
+        >
+          <template v-slot:content>
+            <img class="attraction_slide_img" :src="item.firstImage" />
+            <a class="attraction_slid_img_text" href="#">{{ item.cityName }}</a>
+            <a href="#">
+              <router-link
+                :to="{
+                  name: 'AttractionDetail',
+                  params: {
+                    contentId: item.contentId
+                  }
+                }"
+              >
+                <button class="attraction_slid_enter_btn" type="button">
+                  둘러보기
+                </button>
+              </router-link>
+            </a>
+          </template>
+        </vueper-slide>
+      </vueper-slides>
+    </div>
   </main>
 </template>
 
