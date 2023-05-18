@@ -31,18 +31,21 @@
           <ul class="login_menu">
             <div v-if="storeLoginState">
               <li>
-                <router-link to="/mypage">마이페이지</router-link>
+                <router-link to="/mypage"> &#128587; 마이페이지</router-link>
               </li>
               <li>
-                <a href="#" v-on:click="userLogout">로그아웃</a>
+                <router-link to="/likepage">&#128147; 찜한 곳</router-link>
+              </li>
+              <li>
+                <a href="#" v-on:click="userLogout">&#128682; 로그아웃</a>
               </li>
             </div>
             <div v-else>
               <li>
-                <router-link to="/login">로그인</router-link>
+                <router-link to="/login">&#128747; 로그인</router-link>
               </li>
               <li>
-                <router-link to="/register">회원가입</router-link>
+                <router-link to="/register">&#128583; 회원가입</router-link>
               </li>
             </div>
           </ul>
@@ -55,7 +58,7 @@
             :key="index"
             class="user_menu_item"
           >
-            <a href="#">
+            <a :href="item.url" target="_blank">
               <img
                 :src="item.img"
                 alt="logo"
@@ -69,6 +72,7 @@
         </ul>
       </nav>
     </header>
+    <hr />
   </div>
 </template>
 
