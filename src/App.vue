@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import userStore from "./store/modules/userStore";
 import Navbar from "./components/nav.vue";
 import Footer from "./components/footer.vue";
 export default {
@@ -15,6 +16,10 @@ export default {
   components: {
     Navbar,
     Footer
+  },
+  created() {
+    console.log("최초 생성 : ", userStore.getters.GET_TOKEN());
+    let token = this.$userStore;
   }
 };
 </script>

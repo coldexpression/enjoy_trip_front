@@ -6,8 +6,12 @@ import Register from "@/components/user/register";
 import MyPage from "@/components/user/myPage";
 import AttractionDetail from "@/components/attraction/attractionDetail";
 import store from "@/store/index";
+import VueCookies from "vue-cookies";
+import VueRouter from "vue-router";
 
 Vue.use(Router);
+
+const router = new VueRouter();
 
 const requireAuth = type => (to, from, next) => {
   const loginCheck = store.state.userStore.userInfo.isCheck;
@@ -21,6 +25,18 @@ const requireAuth = type => (to, from, next) => {
     else next();
   }
 };
+
+router.beforeEach(async (to, from, next) => {
+  if (
+    to.matched.some(record => record.meta.unauthorized) ||
+    VueCookies.get("token")
+  ) {
+    return next();
+  }
+
+  alert("로그인 해주세요");
+  return next("/login");
+});
 
 export default new Router({
   routes: [

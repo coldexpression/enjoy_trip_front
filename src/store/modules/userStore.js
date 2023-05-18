@@ -1,6 +1,6 @@
 import axios from "../../assets/js/axios";
 import router from "../../router";
-
+import VueCookies from "vue-cookies";
 const userStore = {
   namespaced: true,
   // 초기 상태
@@ -20,6 +20,7 @@ const userStore = {
       state.userInfo.userEmail = payload.userEmail;
       state.userInfo.isCheck = payload.isCheck;
       state.userInfo.accessToken = payload.accessToken;
+      VueCookies.set("accessToken", payload.accessToken);
     },
     MU_LOGOUT(state) {
       state.userInfo.userId = "";
@@ -27,6 +28,7 @@ const userStore = {
       state.userInfo.isCheck = false;
       state.userInfo.bookMark = [];
       state.userInfo.accessToken = "";
+      VueCookies.remove("accessToken");
     },
     MU_LOAD_BOOKMARK(state, payload) {
       state.userInfo.bookMark = payload;
@@ -47,6 +49,12 @@ const userStore = {
     GET_USER_BOOKMARK: state => {
       console.log("북마크 조회 값 : ", state.userInfo.bookMark);
       return state.userInfo.bookMark;
+    },
+    GET_TOKEN: state => {
+      console.log("GET_ TOKEN!!");
+      console.log(state);
+      let ac = VueCookies.get("accessToken");
+      return ac;
     }
   },
   // actions 는 mutations 와 달리 비도기적 로직을 정의 할 수 있음
@@ -71,6 +79,7 @@ const userStore = {
             isCheck: true,
             accessToken: response.data.accessToken
           };
+
           console.log(resultUser);
           context.commit("MU_LOGIN", resultUser);
           // this.$store.commit("login", resultUser);
@@ -136,6 +145,26 @@ const userStore = {
         })
         .catch(error => {
           console.log("북마크 호출 실패");
+          console.log(error);
+        });
+    },
+    AC_USER_SIGNUP: (context, payload) => {
+      console.log("AC_USER_SIGNUP !!");
+      console.log("가입 정보 : ", payload);
+      const user = {
+        id: payload.newId,
+        pwd: payload.newPwd,
+        email: payload.newEmail
+      };
+      axios
+        .post("user/signup", user)
+        .then(res => {
+          console.log("회원 가입 성공 !");
+          console.log(res);
+          router.push("/login");
+        })
+        .catch(error => {
+          console.log("회원 가입 실패!");
           console.log(error);
         });
     }
