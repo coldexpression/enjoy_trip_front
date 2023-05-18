@@ -9,7 +9,8 @@ const userStore = {
       userId: "",
       userEmail: "",
       isCheck: false,
-      bookMark: []
+      bookMark: [],
+      accessToken: ""
     }
   },
   // state를 변경시킬수 있는 유일한 방법
@@ -18,12 +19,14 @@ const userStore = {
       state.userInfo.userId = payload.userId;
       state.userInfo.userEmail = payload.userEmail;
       state.userInfo.isCheck = payload.isCheck;
+      state.userInfo.accessToken = payload.accessToken;
     },
     MU_LOGOUT(state) {
       state.userInfo.userId = "";
       state.userInfo.userEmail = "";
       state.userInfo.isCheck = false;
       state.userInfo.bookMark = [];
+      state.userInfo.accessToken = "";
     },
     MU_LOAD_BOOKMARK(state, payload) {
       state.userInfo.bookMark = payload;
@@ -65,7 +68,8 @@ const userStore = {
           const resultUser = {
             userId: response.data.id,
             userEmail: response.data.email,
-            isCheck: true
+            isCheck: true,
+            accessToken: response.data.accessToken
           };
           console.log(resultUser);
           context.commit("MU_LOGIN", resultUser);
