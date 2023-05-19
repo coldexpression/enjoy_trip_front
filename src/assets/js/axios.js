@@ -1,5 +1,5 @@
 import Axios from "axios";
-import userStore from "../../store/modules/userStore";
+import store from "@/store";
 import VueCookies from "vue-cookies";
 import router from "../../router";
 
@@ -9,7 +9,7 @@ const AxiosInst = Axios.create({
 
 AxiosInst.interceptors.request.use(
   config => {
-    console.log(userStore.state);
+    // console.log(userStore.state);
     const token = VueCookies.get("accessToken");
     config.headers["Access-Control-Allow-Origin"] = "*"; // CORS 설정(모든 리소스 허용)
     config.headers["Authorization"] = token;
@@ -22,20 +22,21 @@ AxiosInst.interceptors.request.use(
 
 AxiosInst.interceptors.response.use(
   res => {
-    try {
-      console.log("인터셉터 : " + res);
-      return res;
-    } catch (err) {
-      console.error("[axios.interceptors.response] response : ", err.message);
-    }
+    console.log("인터셉터 : ", res);
+    return res;
   },
   error => {
     console.log(" 에러입니다 : ", error.response.status);
     if (error.response.status === 401) {
-      VueCookies.remove("accessToken");
+      // console.log(userStore);
+      // console.log(userStore.actions.AC_USER_LOGOUT());
+      // userStore.actions.AC_USER_LOGOUT();
+      store.dispatch("userStore/AC_USER_LOGOUT");
       alert("토큰이 만료되었습니다.");
       router.push("/login");
     }
+
+    return Promise.reject(error);
   }
 );
 

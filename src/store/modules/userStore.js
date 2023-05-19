@@ -167,6 +167,27 @@ const userStore = {
           console.log("회원 가입 실패!");
           console.log(error);
         });
+    },
+    AC_USER_DELETE: (context, payload) => {
+      console.log("AC_USER_DELETE");
+      console.log("회원 정보 : ", payload);
+      const user = {
+        id: payload.id,
+        pwd: payload.pwd
+      };
+
+      axios
+        .post("user", user)
+        .then(res => {
+          console.log("탈퇴 성공!");
+          console.log(" 응답 객체 : ", res);
+          context.commit("MU_LOGOUT");
+          router.push("/");
+        })
+        .catch(error => {
+          console.log("탈퇴 실패 ㅠㅠ");
+          console.log(error);
+        });
     }
   }
 };

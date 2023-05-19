@@ -1,5 +1,5 @@
 import { mapGetters } from "vuex";
-import axios from "./axios";
+import axios from "../js/axios";
 import { nFormatter } from "./filters";
 const userStore = "userStore";
 
@@ -12,7 +12,7 @@ export default {
   },
   created() {
     axios
-      .get("http://localhost:9000/api/attraction/userFavorite", {
+      .get("attraction/userFavorite", {
         params: {
           userId: this.storeUserId
         }

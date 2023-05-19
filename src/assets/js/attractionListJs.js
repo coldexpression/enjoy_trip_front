@@ -1,8 +1,7 @@
 import { mapGetters } from "vuex";
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-
-import axios from "axios";
+import axios from "../js/axios";
 export default {
   data() {
     return {
@@ -11,7 +10,7 @@ export default {
     };
   },
   created() {
-    axios.get("http://localhost:9000/api/attraction/list").then(res => {
+    axios.get("attraction/list").then(res => {
       console.log(res);
       console.log(res.data);
       this.AttractionList = res.data;

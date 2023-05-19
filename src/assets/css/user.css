@@ -150,11 +150,11 @@ form .submit {
 }
 
 /*버튼*/
-form .delete {
-  width: 300px;
+form .delete_btn {
+  width: 95%;
   height: 40px;
-  margin-left: 10%;
-  margin-top: 5%;
+  margin-left: 3%;
+  margin-top: 15px;
   font-size: large;
   background-color: rgb(255, 60, 60);
   color: white;

@@ -1,72 +1,76 @@
 <template>
   <main class="userInfo">
     <div class="content">
-      <h1>마이페이지</h1>
-
       <section class="section">
         <form v-on:submit.prevent="submitEdit" method="post">
           <div class="info">
-            <h2>기존정보 변경하기</h2>
+            <h1>마이페이지</h1>
+            <b-alert
+              class="login_alert"
+              :show="
+                errorPwdCheck ||
+                  errorNewPwdCheck ||
+                  errorNewPwdConfirmCheck ||
+                  errorNotSameAsNewPwd
+              "
+              variant="danger"
+            >
+              <a v-for="(error, index) in errors" :key="index">{{
+                error.context
+              }}</a>
+            </b-alert>
             <p>
-              아이디<br /><input
+              아이디<br /><b-form-input
                 type="text"
-                name="editUserId"
-                autofocus
-                readonly
-                v-bind:value="storeUserId"
-                placeholder=" 아이디를 입력하시오"
+                name="id"
+                v-model="storeUserId"
+                class="id"
+                disabled
               />
             </p>
             <p>
-              이메일<br /><input
-                type="email"
+              이메일<br /><b-form-input
+                type="text"
                 name="email"
-                readonly
-                v-bind:value="storeUserEmail"
-                placeholder=" 이메일"
+                v-model="storeUserEmail"
+                class="email"
+                disabled
               />
             </p>
 
             <h2>비밀번호 변경하기</h2>
             <p>
-              기존 비밀번호<br /><input
+              기존 비밀번호<br /><b-form-input
                 type="password"
                 name="pwd"
                 v-model="pwd"
-                placeholder="기존 비밀번호"
+                :state="!errorPwdCheck ? null : false"
+                class="pwd"
               />
             </p>
             <p>
-              비밀번호<br /><input
+              비밀번호<br /><b-form-input
                 type="password"
                 name="newPwd"
                 v-model="newPwd"
-                placeholder=" 비밀번호"
+                :state="!errorNewPwdCheck ? null : false"
+                class="newPwd"
               />
             </p>
             <p>
-              비밀번호 확인<br /><input
+              비밀번호 확인<br /><b-form-input
                 type="password"
                 name="newPwdConfirm"
                 v-model="newPwdConfirm"
-                placeholder=" 비밀번호 확인"
+                :state="!errorNewPwdConfirmCheck ? null : false"
+                class="newPwdConfirm"
               />
             </p>
+            <input type="submit" class="submit" value="회원정보수정" />
+            <button class="delete_btn" @click.prevent="sumbitDelete">
+              회원 탈퇴
+            </button>
           </div>
-          <div>
-            <p>
-              <input
-                type="checkbox"
-                id="advertisement"
-                name="advertisement"
-              /><label for="advertisement">
-                특가항공권 및 할인 혜택안내 동의(선택)</label
-              >
-            </p>
-          </div>
-          <input type="submit" class="submit" value="회원정보수정" />
-
-          <input type="button" id="delete" class="delete" value="회원탈퇴" />
         </form>
       </section>
     </div>
