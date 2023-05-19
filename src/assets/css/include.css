@@ -14,19 +14,17 @@ ul {
   list-style-type: none;
 }
 /* ------ header css ------ */
-div > header {
-  margin-left: 170px;
-  margin-right: 170px;
-}
-
-/* header 첫번째 줄 */
 
 div > header {
   margin: 0 auto;
   width: 70%;
+  /* margin-left: 170px;
+  margin-right: 170px; */
   margin-bottom: 15px;
   height: 114px;
 }
+
+/* header 첫번째 줄 */
 
 .first_header {
   display: flex;
@@ -36,6 +34,7 @@ div > header {
   padding-left: 90px;
 }
 
+/* 로그인 */
 .logo_menu {
   display: flex;
   align-items: center;
@@ -46,10 +45,15 @@ div > header {
   align-content: center;
   padding-right: 60px;
 }
-
-.login_menu > li {
+.login_menu div {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+}
+.login_menu li {
   /* display: flex;
   align-content: center; */
+  padding-top: 25px;
   padding-right: 30px;
 }
 
