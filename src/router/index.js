@@ -4,6 +4,7 @@ import main from "@/components/main";
 import Login from "@/components/user/login";
 import Register from "@/components/user/register";
 import MyPage from "@/components/user/myPage";
+import Likepage from "@/components/user/likepage";
 import AttractionDetail from "@/components/attraction/attractionDetail";
 import store from "@/store/index";
 
@@ -51,6 +52,12 @@ export default new Router({
       path: "/attraction-detail/:contentId",
       name: "AttractionDetail",
       component: AttractionDetail
+    },
+    {
+      path: "/likepage",
+      name: "Likepage",
+      component: Likepage,
+      beforeEnter: requireAuth("likepage")
     }
   ]
 });

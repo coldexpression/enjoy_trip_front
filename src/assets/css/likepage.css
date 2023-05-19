@@ -1,0 +1,48 @@
+.detail_main {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.list_title {
+  font-weight: bold;
+  margin-top: 1em;
+  padding-left: 2em;
+}
+
+.detail_img {
+  width: 13em;
+  height: 10em;
+  border-radius: 10px;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+}
+
+.detail_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.detail_list * {
+  list-style: none;
+}
+
+.detail_list a {
+  /* text-align: center; */
+  text-decoration: none; /* 링크의 밑줄 제거 */
+  color: inherit; /* 링크의 색상 제거 */
+}
+
+li.detail_list_item {
+  display: flex;
+  flex-basis: 35em;
+  margin-bottom: 2em;
+}
+
+.detail_title {
+  font-weight: bold;
+  font-size: 1.5em;
+  height: 3em;
+  display: block;
+}
