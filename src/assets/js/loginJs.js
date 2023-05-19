@@ -10,10 +10,15 @@ export default {
       id: "",
       pwd: "",
       loginCheck: false,
+      saveIdCheck: false,
       errors: [],
       errorIdCheck: false,
       errorPwdCheck: false
     };
+  },
+  created() {
+    console.log("생성 완료!");
+    this.initForm();
   },
   computed: {
     ...mapGetters(userStore, {
@@ -35,6 +40,13 @@ export default {
     }
   },
   methods: {
+    onClickSaveId() {
+      if (this.saveIdCheck) {
+        localStorage.removeItem("savedId");
+      } else {
+        localStorage.setItem("savedId", this.id);
+      }
+    },
     submitForm(event) {
       this.errors = [];
       if (!this.id) {
@@ -65,6 +77,17 @@ export default {
     validPassword(password) {
       let reg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
       return reg.test(password);
+    },
+    initForm() {
+      console.log("initForm() 호출!");
+      const savedId = localStorage.getItem("savedId");
+      console.log(savedId);
+      if (savedId) {
+        this.saveIdCheck = true;
+        this.id = savedId;
+      } else {
+        this.saveIdCheck = false;
+      }
     }
   }
 };

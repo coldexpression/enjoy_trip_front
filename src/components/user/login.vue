@@ -29,6 +29,8 @@
                   type="checkbox"
                   name="remainLogin"
                   id="remainLogin"
+                  v-model="saveIdCheck"
+                  @click="onClickSaveId"
                 /><label for="remainLogin"> 아이디 저장</label>
               </p>
               <p>
