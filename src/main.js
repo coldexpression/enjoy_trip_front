@@ -11,6 +11,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import Vuex from "vuex";
+import VueCookies from "vue-cookies";
 import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
@@ -25,6 +26,10 @@ Vue.config.productionTip = false;
 library.add(fas, far, fab, faUserSecret);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.use(BootstrapVue);
+Vue.use(VueCookies, {
+  expireTimes: "10d",
+  secure: true
+});
 
 /* eslint-disable no-new */
 new Vue({
