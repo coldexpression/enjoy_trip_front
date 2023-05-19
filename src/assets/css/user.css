@@ -87,9 +87,8 @@ ul {
 .info > p > input {
   width: 280px;
   height: 40px;
-  border-radius: 5px;
   text-align: left;
-  font-size: large;
+  padding-left: 10px;
   margin-top: 1px;
 }
 

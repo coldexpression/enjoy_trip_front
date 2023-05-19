@@ -6,42 +6,56 @@
           <form v-on:submit.prevent="submitForm" id="signin">
             <div class="info">
               <h1>회원가입</h1>
-              <input type="hidden" name="action" value="signin" />
+              <b-alert
+                class="regist_alert"
+                :show="
+                  errorIdCheck ||
+                    errorPwdCheck ||
+                    errorConfirmPwdCheck ||
+                    errorEmailCheck ||
+                    errorValidPwdCheck ||
+                    errorNoSameAsPwdCheck
+                "
+                variant="danger"
+              >
+                <a v-for="(error, index) in errors" :key="index">{{
+                  error.context
+                }}</a>
+              </b-alert>
               <p>
-                아이디<br /><input
+                아이디<br /><b-form-input
                   type="text"
                   name="newId"
-                  id="newId"
-                  v-model="registUser.newId"
-                  autofocus
-                  placeholder=" 아이디를 입력하시오"
+                  :state="!errorIdCheck ? null : false"
+                  v-model="newId"
+                  class="newId"
                 />
               </p>
               <p>
-                이메일<br /><input
+                이메일<br /><b-form-input
                   type="email"
-                  name="newEmail;"
-                  id="newEmail"
-                  v-model="registUser.newEmail"
-                  placeholder=" 이메일"
+                  name="newEmail"
+                  :state="!errorEmailCheck ? null : false"
+                  v-model="newEmail"
+                  class="newEmail"
                 />
               </p>
               <p>
-                비밀번호<br /><input
+                비밀번호<br /><b-form-input
                   type="password"
                   name="newPwd"
-                  id="newPwd"
-                  v-model="registUser.newPwd"
-                  placeholder=" 비밀번호"
+                  :state="!errorPwdCheck ? null : false"
+                  v-model="newPwd"
+                  class="newPwd"
                 />
               </p>
               <p>
-                비밀번호 확인<br /><input
+                비밀번호 확인<br /><b-form-input
                   type="password"
                   name="newConfirmPwd"
-                  id="newConfirmPwd"
-                  v-model="registUser.newConfirmPwd"
-                  placeholder=" 비밀번호 확인"
+                  :state="!errorConfirmPwdCheck ? null : false"
+                  v-model="newConfirmPwd"
+                  class="newConfirmPwd"
                 />
               </p>
               <input type="submit" class="submit" value="회원가입" />

@@ -19,7 +19,6 @@
                 아이디<br /><b-form-input
                   type="text"
                   name="id"
-                  autofocus
                   :state="!errorIdCheck ? null : false"
                   v-model="id"
                   class="id"
