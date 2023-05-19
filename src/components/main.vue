@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <h1 id="mainPhrases">관광지 인기순위</h1>
+    <h1 class="mainPhrases">관광지 인기순위</h1>
 
     <!--메인 세션1 TOP 4 관광지-->
     <section class="travel_img">
@@ -28,7 +28,7 @@
       </ul>
     </section>
 
-    <h1 id="mainPhrases">지역 관광지</h1>
+    <h1 class="mainPhrases">지역 관광지</h1>
     <!-- 슬라이드-->
     <vueper-slides
       class="no-shadow"
@@ -90,7 +90,7 @@
     <!--메인 세션3 관광지2-->
 
     <div v-if="storeLoginState">
-      <h1 id="mainPhrases">나의 여행지</h1>
+      <h1 class="mainPhrases">나의 여행지</h1>
       <vueper-slides
         class="no-shadow"
         :visible-slides="4"
