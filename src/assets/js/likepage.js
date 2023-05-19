@@ -1,5 +1,6 @@
 import { mapGetters } from "vuex";
 import axios from "./axios";
+import { nFormatter } from "./filters";
 const userStore = "userStore";
 
 export default {
@@ -31,5 +32,15 @@ export default {
       storeUserId: "GET_USER_ID",
       storeUserEmail: "GET_USER_EMAIL"
     })
+  },
+  filters: {
+    nFormatter
+  },
+  methods: {
+    log() {
+      console.log(
+        "하트 클릭함 -> 찜한 목록에서 지우게 하는 메소드 추가 /원한다면 새로고침까지"
+      );
+    }
   }
 };
