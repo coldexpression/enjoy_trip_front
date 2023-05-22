@@ -1,32 +1,33 @@
 import { mapGetters } from "vuex";
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
-import axios from "../js/axios";
+import { nFormatter } from "./filters";
+
+const attractionStore = "attractionStore";
+
 export default {
   data() {
     return {
-      title: "제목",
-      AttractionList: []
+      title: "목록 조회",
     };
   },
-  created() {
-    axios.get("attraction/list").then(res => {
-      console.log(res);
-      console.log(res.data);
-      this.AttractionList = res.data;
-    });
-  },
   computed: {
-    AttractionCalcList() {
-      return this.AttractionList.map(attraction => {
-        return {
-          title: attraction.title,
-          addr: attraction.addr1,
-          image: attraction.firstImage,
-          likeTxt: attraction.likeCount + 2,
-          readTxt: attraction.readCount / 100
-        };
-      });
-    }
-  }
+    ...mapGetters(attractionStore, {
+      storeAttractionList: "GET_ATTRACTION_LIST",
+    }),
+  },
+  filters: {
+    nFormatter,
+  },
+  methods: {
+    bookMark() {
+      console.log("하트 클릭함");
+    },
+    loadAttractionList() {
+      this.$store.dispatch(`${attractionStore}/AC_ATTRACTION_LIST_LOAD`);
+    },
+  },
+  mounted() {
+    console.log("list - mounted!!");
+    this.loadAttractionList();
+    // this.$store.dispatch(`${attractionStore}/AC_TOP_INFO_LOAD`);
+  },
 };
