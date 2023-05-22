@@ -5,7 +5,7 @@
       <ul class="detail_list">
         <li
           class="detail_list_item"
-          v-for="Attraction in AttractionList"
+          v-for="Attraction in storeAttractionList"
           :key="Attraction.title"
         >
           <router-link
@@ -42,10 +42,10 @@
                   <font-awesome-icon :icon="['fa-solid', 'fa-eye']" />
                   {{ Attraction.readCount | nFormatter(1) }}
                 </li>
-                <li @click="log">
+                <li @click="bookmarkClick(Attraction.contentId)">
                   <font-awesome-icon
                     class="heart_icon"
-                    v-if="Attraction.liked"
+                    v-if="bookmarks.includes(parseInt(Attraction.contentId))"
                     :icon="['fa-solid', 'fa-heart']"
                   />
                   <font-awesome-icon
@@ -66,64 +66,8 @@
 </template>
 
 <script>
-import * as filters from "../../assets/js/filters.js";
-import axios from "axios";
-export default {
-  data() {
-    return {
-      title: "제목",
-      AttractionList: []
-    };
-  },
-  created() {
-    axios.get("http://localhost:9000/api/attraction/list").then(res => {
-      console.log(res);
-      console.log(res.data);
-      this.AttractionList = res.data;
-    });
-  },
-  methods: {
-    log() {
-      console.log("하트 클릭함");
-    }
-  },
-  filters: {
-    nFormatter: function(num, digits) {
-      const lookup = [
-        { value: 1, symbol: "" },
-        { value: 1e3, symbol: "k" },
-        { value: 1e6, symbol: "M" },
-        { value: 1e9, symbol: "G" },
-        { value: 1e12, symbol: "T" },
-        { value: 1e15, symbol: "P" },
-        { value: 1e18, symbol: "E" }
-      ];
-      const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-      var item = lookup
-        .slice()
-        .reverse()
-        .find(function(item) {
-          return num >= item.value;
-        });
-      return item
-        ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol
-        : "0";
-    }
-  }
-  // computed: {
-  //   AttractionCalcList() {
-  //     return this.AttractionList.map(attraction => {
-  //       return {
-  //         title: attraction.title,
-  //         addr: attraction.addr1,
-  //         image: attraction.firstImage,
-  //         likeTxt: attraction.likeCount + 2,
-  //         readTxt: attraction.readCount / 100
-  //       };
-  //     });
-  //   }
-  // }
-};
+import attractionList from "@/assets/js/attractionListJS.js";
+export default attractionList;
 </script>
 
 <style scoped>

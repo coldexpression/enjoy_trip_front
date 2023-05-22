@@ -42,7 +42,7 @@
                   <font-awesome-icon :icon="['fa-solid', 'fa-eye']" />
                   {{ Attraction.readCount | nFormatter(1) }}
                 </li>
-                <li @click="log">
+                <li @click="bookmarkClick(Attraction.contentId)">
                   <font-awesome-icon
                     class="heart_icon"
                     :icon="['fa-solid', 'fa-heart']"
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import likepage from "@/assets/js/likepage";
+import likepage from "@/assets/js/likePageJS";
 export default likepage;
 </script>
 
