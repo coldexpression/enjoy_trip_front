@@ -23,7 +23,7 @@ const requireAuth = type => (to, from, next) => {
     else next();
   } else {
     console.log("로그인 정보 없음");
-    if (type === "myPage") next("/");
+    if (type === "myPage" || type === "likePage") next("/");
     else next();
   }
 };
@@ -79,7 +79,7 @@ export default new Router({
       path: "/likepage",
       name: "Likepage",
       component: Likepage,
-      beforeEnter: requireAuth("likepage")
+      beforeEnter: requireAuth("likePage")
     }
   ]
 });
