@@ -14,7 +14,8 @@
                     errorConfirmPwdCheck ||
                     errorEmailCheck ||
                     errorValidPwdCheck ||
-                    errorNoSameAsPwdCheck
+                    errorNoSameAsPwdCheck ||
+                    errorRegistCheck
                 "
                 variant="danger"
               >

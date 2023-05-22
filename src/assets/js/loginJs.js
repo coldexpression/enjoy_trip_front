@@ -13,7 +13,8 @@ export default {
       saveIdCheck: false,
       errors: [],
       errorIdCheck: false,
-      errorPwdCheck: false
+      errorPwdCheck: false,
+      errorLoginCheck: false
     };
   },
   created() {
@@ -32,11 +33,13 @@ export default {
       this.errors = [];
       this.errorPwdCheck = false;
       this.errorIdCheck = false;
+      this.errorLoginCheck = false;
     },
     pwd() {
       this.errors = [];
       this.errorPwdCheck = false;
       this.errorIdCheck = false;
+      this.errorLoginCheck = false;
     }
   },
   methods: {
@@ -71,7 +74,21 @@ export default {
       }
 
       if (this.errors.length == 0) {
-        this.$store.dispatch(`${userStore}/AC_USER_LOGIN`, event.target);
+        this.$store
+          .dispatch(`${userStore}/AC_USER_LOGIN`, event.target)
+          .then(res => {
+            console.log("결과 : ", res);
+
+            if (!res) {
+              this.errors.push({
+                flag: "loginFail",
+                context: "아이디 및 비밀번호가 일치하지 않습니다"
+              });
+              console.log("접근");
+              this.errorLoginCheck = true;
+              return;
+            }
+          });
       }
     },
     validPassword(password) {
