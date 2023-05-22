@@ -30,19 +30,19 @@ export default {
   },
   watch: {
     id() {
+      this.errorInit();
+    },
+    pwd() {
+      this.errorInit();
+    }
+  },
+  methods: {
+    errorInit() {
       this.errors = [];
       this.errorPwdCheck = false;
       this.errorIdCheck = false;
       this.errorLoginCheck = false;
     },
-    pwd() {
-      this.errors = [];
-      this.errorPwdCheck = false;
-      this.errorIdCheck = false;
-      this.errorLoginCheck = false;
-    }
-  },
-  methods: {
     onClickSaveId() {
       if (this.saveIdCheck) {
         localStorage.removeItem("savedId");
@@ -106,5 +106,8 @@ export default {
         this.saveIdCheck = false;
       }
     }
+  },
+  destoryed() {
+    this.errorInit();
   }
 };

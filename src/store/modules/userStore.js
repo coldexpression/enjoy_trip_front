@@ -32,6 +32,9 @@ const userStore = {
     },
     MU_LOAD_BOOKMARK(state, payload) {
       state.userInfo.bookMark = payload;
+    },
+    MU_EDIT_BOOKMARK(state, payload) {
+      state.userInfo.bookMark = payload.bookMark;
     }
   },
   // 공동의 상태를 계산하여 state의 값을 반환
@@ -130,11 +133,7 @@ const userStore = {
       console.log("AC_USER_LOAD_BOOKMARK !!");
       console.log("유저 아이디 : " + payload);
       try {
-        const respone = await axios.get("attraction/userFavorite", {
-          params: {
-            userId: payload
-          }
-        });
+        const respone = await axios.get("attraction/userFavorite");
         console.log("북마크 호출 성공");
         console.log(respone.data);
         context.commit("MU_LOAD_BOOKMARK", respone.data);
@@ -180,6 +179,28 @@ const userStore = {
         console.log("탈퇴 실패 ㅠㅠ");
         console.log(e);
       }
+    },
+    AC_EDIT_BOOKMARK: (context, payload) => {
+      console.log("AC_EDIT_BOOKMARK");
+      console.log("북마크 정보 : ", payload);
+      context.commit("MU_EDIT_BOOKMARK", payload);
+    },
+    AC_REGIST_BOOKMARK: (context, payload) => {
+      console.log("AC_REGIST_BOOKMARK !!!");
+      axios.post(`attraction/${payload}/likeUp`).then(res => {
+        console.log("북마크 등록 성공");
+        console.log(res.data);
+        context.dispatch("AC_USER_LOAD_BOOKMARK");
+      });
+    },
+    AC_REMOVE_BOOKMARAK: (context, payload) => {
+      console.log("AC_REMOVE_BOOKMARAK !!!");
+      console.log("in context ? :", context.dispatch);
+      axios.post(`attraction/${payload}/likeDown`).then(res => {
+        console.log("북마크 삭제 성공");
+        console.log(res.data);
+        context.dispatch("AC_USER_LOAD_BOOKMARK");
+      });
     }
   }
 };

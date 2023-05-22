@@ -25,13 +25,13 @@ export default {
   },
   watch: {
     pwd() {
-      this.init();
+      this.errorInit();
     },
     newPwd() {
-      this.init();
+      this.errorInit();
     },
     newPwdConfirm() {
-      this.init();
+      this.errorInit();
     }
   },
   methods: {
@@ -117,7 +117,7 @@ export default {
 
       this.$store.dispatch(`${userStore}/AC_USER_DELETE`, deleteUserInfo);
     },
-    init() {
+    errorInit() {
       console.log("초기화!!");
       this.errors = [];
       this.errorPwdCheck = false;
@@ -135,5 +135,6 @@ export default {
     this.pwd = "";
     this.newPwd = "";
     this.newPwdConfirm = "";
+    this.errorInit();
   }
 };

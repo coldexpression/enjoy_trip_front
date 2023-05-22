@@ -125,5 +125,8 @@ export default {
       let reg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
       return reg.test(password);
     }
+  },
+  destoryed() {
+    this.initErrorForm();
   }
 };

@@ -2,13 +2,13 @@
 
 /* ------ main css ------ */
 .main {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-left: 15%;
   min-height: calc(100vh - 10rem);
 }
 .mainPhrases {
   font-weight: 600;
-  margin-top: 1%;
+  margin-top: 1rem;
   margin-left: 2%;
   margin-bottom: 0;
   padding-bottom: 0;
@@ -148,6 +148,10 @@
   color: #777777;
   cursor: pointer;
   border: none;
+}
+
+.vueperslides__bullets {
+  display: none;
 }
 
 /* a {

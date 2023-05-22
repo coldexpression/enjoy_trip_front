@@ -2,16 +2,24 @@ import { mapGetters } from "vuex";
 import router from "../../router";
 
 const attractionStore = "attractionStore";
+const userStore = "userStore";
 
 export default {
   data() {
     return {
-      map: null
+      map: null,
+      bookMarkCheck: false
     };
   },
   computed: {
     ...mapGetters(attractionStore, {
       storeAttractionDetailInfo: "GET_ATTRACTION_DETAIL_INFO"
+    }),
+    ...mapGetters(userStore, {
+      storeBookMarkInfo: "GET_USER_BOOKMARK"
+    }),
+    ...mapGetters(userStore, {
+      storeLoginState: "GET_LOGIN_STATE"
     })
   },
   watch: {},
@@ -63,10 +71,30 @@ export default {
       console.log(this.map);
       this.map.setCenter(moveLatLon);
       this.loadMaker();
+    },
+    clickLike(flag) {
+      const contentId = router.history.current.params.contentId;
+      console.log("좋아요 클릭 : ", contentId);
+
+      if (flag == 0) {
+        this.$store.dispatch(`${userStore}/AC_REGIST_BOOKMARK`, contentId);
+        this.bookMarkCheck = true;
+        console.log("북마크 등록하기");
+      } else {
+        this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, contentId);
+        this.bookMarkCheck = false;
+        console.log("북마크 삭제하기");
+      }
     }
   },
   created() {
     console.log("created!!");
+    console.log("북마크 정보 : ", this.storeBookMarkInfo);
+    const contentId = router.history.current.params.contentId;
+    this.bookMarkCheck =
+      this.storeBookMarkInfo.filter(data => data.contentId === contentId)
+        .length === 1;
+    console.log(this.bookMarkCheck);
   },
   beforeUpdate() {
     console.log("beforeUpdate !!");
