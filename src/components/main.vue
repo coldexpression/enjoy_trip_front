@@ -38,6 +38,8 @@
       :slide-ratio="1 / 4"
       :dragging-distance="200"
       :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
+      :bullets="false"
+      :touchable="false"
     >
       <vueper-slide
         class="attraction_slide"
@@ -47,22 +49,18 @@
         :content="item.cityName"
       >
         <template v-slot:content>
-          <img class="attraction_slide_img" :src="item.url" />
-          <a class="attraction_slid_img_text" href="#">{{ item.cityName }}</a>
-          <a href="#">
-            <router-link
-              :to="{
-                name: 'AttractionDetail',
-                params: {
-                  contentId: item.content_id
-                }
-              }"
-            >
-              <button class="attraction_slid_enter_btn" type="button">
-                둘러보기
-              </button>
-            </router-link>
-          </a>
+          <router-link
+            :to="{
+              name: 'AttractionDetail',
+              params: {
+                contentId: item.contentId
+              }
+            }"
+          >
+            <img class="attraction_slide_img" :src="item.url" />
+            <a class="attraction_slid_img_text" href="#">{{ item.cityName }}</a>
+            <a href="#"></a>
+          </router-link>
         </template>
       </vueper-slide>
     </vueper-slides>
@@ -99,6 +97,8 @@
         :slide-ratio="1 / 4"
         :dragging-distance="200"
         :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
+        :bullets="false"
+        :touchable="false"
       >
         <vueper-slide
           class="attraction_slide"
@@ -108,22 +108,18 @@
           :content="item.cityName"
         >
           <template v-slot:content>
-            <img class="attraction_slide_img" :src="item.firstImage" />
-            <a class="attraction_slid_img_text" href="#">{{ item.cityName }}</a>
-            <a href="#">
-              <router-link
-                :to="{
-                  name: 'AttractionDetail',
-                  params: {
-                    contentId: item.contentId
-                  }
-                }"
-              >
-                <button class="attraction_slid_enter_btn" type="button">
-                  둘러보기
-                </button>
-              </router-link>
-            </a>
+            <router-link
+              :to="{
+                name: 'AttractionDetail',
+                params: {
+                  contentId: item.contentId
+                }
+              }"
+            >
+              <img class="attraction_slide_img" :src="item.firstImage" />
+              <a class="attraction_slid_img_text" href="#">{{ item.title }}</a>
+              <a href="#"></a>
+            </router-link>
           </template>
         </vueper-slide>
       </vueper-slides>

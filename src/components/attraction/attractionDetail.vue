@@ -67,7 +67,25 @@
             <li class="detail_title">주소</li>
             <li class="detail_content">
               {{ storeAttractionDetailInfo.addr1 }}
-              <font-awesome-icon :icon="['fas', 'location-dot']" />
+              <font-awesome-icon
+                class="location_icon"
+                :icon="['fas', 'location-dot']"
+                @click="setMapCenter"
+              />
+              <a v-if="storeLoginState">
+                <font-awesome-icon
+                  class="heart_icon"
+                  v-if="bookMarkCheck"
+                  @click="clickLike(1)"
+                  :icon="['fa-solid', 'fa-heart']"
+                />
+                <font-awesome-icon
+                  class="heart_icon"
+                  v-else
+                  @click="clickLike(0)"
+                  :icon="['fa-regular', 'fa-heart']"
+                />
+              </a>
             </li>
           </ul>
         </li>

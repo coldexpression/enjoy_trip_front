@@ -17,7 +17,8 @@ export default {
       errorPwdCheck: false,
       errorConfirmPwdCheck: false,
       errorValidPwdCheck: false,
-      errorNoSameAsPwdCheck: false
+      errorNoSameAsPwdCheck: false,
+      errorRegistCheck: false
     };
   },
   computed: {
@@ -95,7 +96,20 @@ export default {
         return;
       }
 
-      this.$store.dispatch(`${userStore}/AC_USER_SIGNUP`, this);
+      this.$store.dispatch(`${userStore}/AC_USER_SIGNUP`, this).then(res => {
+        console.log("회원가입 결과 : ", res);
+        const check = res;
+
+        if (!check) {
+          this.errorRegistCheck = true;
+          this.errors.push({
+            flag: "registFail",
+            context: "이미 존재하는 아이디 입니다"
+          });
+          console.log("이미 존재함");
+          return;
+        }
+      });
     },
     initErrorForm() {
       this.errors = [];
@@ -105,10 +119,14 @@ export default {
       this.errorValidPwdCheck = false;
       this.errorNoSameAsPwdCheck = false;
       this.errorConfirmPwdCheck = false;
+      this.errorRegistCheck = false;
     },
     validPassword(password) {
       let reg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
       return reg.test(password);
     }
+  },
+  destoryed() {
+    this.initErrorForm();
   }
 };

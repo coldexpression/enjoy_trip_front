@@ -8,7 +8,7 @@
               <h1>로그인</h1>
               <b-alert
                 class="login_alert"
-                :show="errorIdCheck || errorPwdCheck"
+                :show="errorIdCheck || errorPwdCheck || errorLoginCheck"
                 variant="danger"
               >
                 <a v-for="(error, index) in errors" :key="index">{{
