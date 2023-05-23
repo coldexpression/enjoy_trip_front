@@ -1,6 +1,5 @@
 import { mapGetters } from "vuex";
 import { nFormatter } from "./filters";
-import { bookmarkInsert, bookmarkDelete } from "./bookmark";
 import router from "../../router";
 
 const attractionStore = "attractionStore";
@@ -43,12 +42,13 @@ export default {
       //버튼의 상태에 따라서 다른 메소드 실행
       if (this.bookmarks.includes(parseInt(contentId))) {
         console.log("북마크에서 삭제");
-        bookmarkDelete(contentId, this.storeUserId);
+        this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, contentId);
       } else {
         console.log("북마크에 추가");
         var name = prompt("저장할 이름");
         console.log("입력된 이름 :" + name);
-        bookmarkInsert(contentId, this.storeUserId, name);
+        console.log(this);
+        this.$store.dispatch(`${userStore}/AC_REGIST_BOOKMARK`, contentId);
       }
       //코드실행후 북마크 배열 갱신
       console.log("북마크 배열 갱신!");
