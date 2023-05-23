@@ -7,47 +7,56 @@ const data = {
     {
       img: require("@/assets/img/airplane.png"),
       url: "https://flight.naver.com/",
-      title: "항공권"
+      title: "항공권",
+      site: "out"
     },
     {
       img: require("@/assets/img/loading.png"),
       url: "https://hotels.naver.com/",
-      title: "숙소"
+      title: "숙소",
+      site: "out"
     },
     {
       img: require("@/assets/img/tour.png"),
       url: "https://pkgtour.naver.com/",
-      title: "티켓 패키지 투어"
+      title: "티켓 패키지 투어",
+      site: "out"
     },
     {
       img: require("@/assets/img/rentcar.png"),
       url: "https://www.skyscanner.co.kr/car-hire",
-      title: "국내 렌터카"
+      title: "국내 렌터카",
+      site: "out"
     },
     {
       img: require("@/assets/img/roulette.png"),
       url: "https://travel.naver.com/domestic",
-      title: "국내여행 정보"
+      title: "국내여행 정보",
+      site: "out"
     },
     {
       img: require("@/assets/img/package.png"),
       url: "https://travel.naver.com/overseas",
-      title: "해외 여행 정보"
-    },
-    {
-      img: require("@/assets/img/ai.png"),
-      url: "https://travel.naver.com/my/plans",
-      title: "여행 계획 만들기"
-    },
-    {
-      img: require("@/assets/img/hotel.png"),
-      url: "https://hotels.naver.com/",
-      title: "호텔 특가"
+      title: "해외 여행 정보",
+      site: "out"
     },
     {
       img: require("@/assets/img/insurance.png"),
       url: "https://www.travelover.co.kr/",
-      title: "여행자 보험"
+      title: "여행자 보험",
+      site: "out"
+    },
+    {
+      img: require("@/assets/img/note.png"),
+      url: "boardRegist",
+      title: "공지사항",
+      site: "in"
+    },
+    {
+      img: require("@/assets/img/ai.png"),
+      url: "board",
+      title: "게시판",
+      site: "in"
     }
   ]
 };

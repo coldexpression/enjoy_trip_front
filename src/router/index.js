@@ -10,6 +10,8 @@ import AttractionList from "@/components/attraction/attractionList";
 import store from "@/store/index";
 import VueCookies from "vue-cookies";
 import VueRouter from "vue-router";
+import Board from "@/components/board/boardList";
+import BoardRegist from "@/components/board/boardRegist";
 
 Vue.use(Router);
 
@@ -80,6 +82,16 @@ export default new Router({
       name: "Likepage",
       component: Likepage,
       beforeEnter: requireAuth("likePage")
+    },
+    {
+      path: "/board/list",
+      name: "board",
+      component: Board
+    },
+    {
+      path: "/board/regist",
+      name: "boardRegist",
+      component: BoardRegist
     }
   ]
 });

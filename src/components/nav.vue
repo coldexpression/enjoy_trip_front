@@ -58,7 +58,7 @@
             :key="index"
             class="user_menu_item"
           >
-            <a :href="item.url" target="_blank">
+            <a v-if="item.site === 'out'" :href="item.url" target="_blank">
               <img
                 :src="item.img"
                 alt="logo"
@@ -68,6 +68,16 @@
               />
               {{ item.title }}
             </a>
+            <router-link v-else :to="{ name: item.url }">
+              <img
+                :src="item.img"
+                alt="logo"
+                class="nav_icon"
+                width="20"
+                height="20"
+              />
+              {{ item.title }}
+            </router-link>
           </li>
         </ul>
       </nav>
