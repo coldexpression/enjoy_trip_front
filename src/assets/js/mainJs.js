@@ -29,7 +29,7 @@ export default {
           url: require("../../assets/img/jeju.png")
         },
         {
-          cityName: "강원",
+          cityName: "강원도",
           sidoCode: 32,
           url: require("../../assets/img/gangwondo.png")
         },

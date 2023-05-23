@@ -6,11 +6,11 @@ const attractionStore = "attractionStore";
 const userStore = "userStore";
 
 export default {
-  data() {
-    return {
-      title: "목록 조회"
-    };
-  },
+  //   data() {
+  //     return {
+  //       title: router.history.current.params.cityName
+  //     };
+  //   },
   computed: {
     ...mapGetters(attractionStore, {
       storeAttractionList: "GET_ATTRACTION_LIST"
@@ -25,22 +25,17 @@ export default {
       return this.storeBookMarkInfo.map(bookmark => {
         return parseInt(bookmark.contentId);
       });
+    },
+    cityName() {
+      return router.history.current.params.cityName;
     }
   },
   filters: {
     nFormatter
   },
   methods: {
-    bookmarkClick(contentId) {
-      console.log("하트 클릭함");
-      //만약 로그인이 안 되어있는 상태라면 로그인페이지로 이동
-      if (this.storeUserId === "") {
-        alert("회원가입을 하셔야 북마크를 하실 수 있습니다.");
-        router.push("/login");
-        return;
-      }
-      //버튼의 상태에 따라서 다른 메소드 실행
-      if (this.bookmarks.includes(parseInt(contentId))) {
+    bookmark(contentId, marked) {
+      if (marked) {
         console.log("북마크에서 삭제");
         this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, contentId);
       } else {
@@ -50,9 +45,25 @@ export default {
         console.log(this);
         this.$store.dispatch(`${userStore}/AC_REGIST_BOOKMARK`, contentId);
       }
-      //코드실행후 북마크 배열 갱신
-      console.log("북마크 배열 갱신!");
-      this.loadAttractionBookMark();
+      return true;
+    },
+
+    bookmarkClick(contentId) {
+      console.log("하트 클릭함");
+      //만약 로그인이 안 되어있는 상태라면 로그인페이지로 이동
+      if (this.storeUserId === "") {
+        alert("회원가입을 하셔야 북마크를 하실 수 있습니다.");
+        router.push("/login");
+        return;
+      }
+      //버튼의 상태에 따라서 다른 메소드 실행
+      const result = this.bookmark(
+        contentId,
+        this.bookmarks.includes(parseInt(contentId))
+      );
+
+      if (result) {
+      }
     },
     loadAttractionList(sidoCode) {
       this.$store.dispatch(
@@ -62,6 +73,15 @@ export default {
     },
     loadAttractionBookMark(userId) {
       this.$store.dispatch(`${userStore}/AC_USER_LOAD_BOOKMARK`, userId);
+    },
+    loadStore() {
+      //코드실행후 북마크 배열 갱신
+      console.log("북마크 배열 갱신!");
+      this.loadAttractionBookMark();
+      const sidoCode = router.history.current.params.sidoCode;
+      console.log("sidoCode Params: " + sidoCode);
+      this.loadAttractionList(sidoCode);
+      return;
     }
   },
   mounted() {

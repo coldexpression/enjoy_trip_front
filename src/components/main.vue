@@ -53,7 +53,8 @@
             :to="{
               name: 'AttractionList',
               params: {
-                sidoCode: item.sidoCode
+                sidoCode: item.sidoCode,
+                cityName: item.cityName
               }
             }"
           >
