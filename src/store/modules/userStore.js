@@ -202,7 +202,7 @@ const userStore = {
     AC_REMOVE_BOOKMARAK: (context, payload) => {
       console.log("AC_REMOVE_BOOKMARAK !!!");
       console.log("in context ? :", context.dispatch);
-      axios.post(`attraction/${payload}/likeDown`).then(res => {
+      axios.post(`attraction/${payload.contentId}/likeDown`).then(res => {
         console.log("북마크 삭제 성공");
         console.log(res.data);
         context.dispatch("AC_USER_LOAD_BOOKMARK");
