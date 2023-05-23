@@ -71,7 +71,7 @@ export default new Router({
       component: AttractionDetail
     },
     {
-      path: "/attraction-list",
+      path: "/attraction-list/:sidoCode",
       name: "AttractionList",
       component: AttractionList
     },

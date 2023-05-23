@@ -6,11 +6,11 @@ const attractionStore = "attractionStore";
 const userStore = "userStore";
 
 export default {
-  //   data() {
-  //     return {
-  //       title: router.history.current.params.cityName
-  //     };
-  //   },
+  data() {
+    return {
+      title: ""
+    };
+  },
   computed: {
     ...mapGetters(attractionStore, {
       storeAttractionList: "GET_ATTRACTION_LIST"
@@ -20,6 +20,9 @@ export default {
     }),
     ...mapGetters(userStore, {
       storeUserId: "GET_USER_ID"
+    }),
+    ...mapGetters(attractionStore, {
+      storeAttractionTitle: "GET_ATTRACTION_TITLE"
     }),
     bookmarks() {
       return this.storeBookMarkInfo.map(bookmark => {
@@ -85,8 +88,15 @@ export default {
   mounted() {
     console.log("list - mounted!!");
     const sidoCode = router.history.current.params.sidoCode;
+    const attractonTitle = router.history.current.params.cityName;
+    console.log(router.history.current.params);
     console.log("sidoCode Params: " + sidoCode);
     this.loadAttractionList(sidoCode);
-    // this.$store.dispatch(`${attractionStore}/AC_TOP_INFO_LOAD`);
+    if (attractonTitle) {
+      this.$store.dispatch(
+        `${attractionStore}/AC_ATTRACTION_TITLE_LOAD`,
+        attractonTitle
+      );
+    }
   }
 };
