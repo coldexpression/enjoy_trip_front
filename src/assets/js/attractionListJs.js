@@ -30,11 +30,19 @@ export default {
       return router.history.current.params.cityName;
     }
   },
+  watch: {
+    bookmarks() {
+      console.log("배열 갱신!");
+      const sidoCode = router.history.current.params.sidoCode;
+      this.loadAttractionList(sidoCode);
+    }
+  },
   filters: {
     nFormatter
   },
   methods: {
     bookmark(contentId, marked) {
+      //버튼의 상태에 따라서 다른 메소드 실행
       if (marked) {
         console.log("북마크에서 삭제");
         this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, contentId);
@@ -45,7 +53,6 @@ export default {
         console.log(this);
         this.$store.dispatch(`${userStore}/AC_REGIST_BOOKMARK`, contentId);
       }
-      return true;
     },
 
     bookmarkClick(contentId) {
@@ -56,14 +63,7 @@ export default {
         router.push("/login");
         return;
       }
-      //버튼의 상태에 따라서 다른 메소드 실행
-      const result = this.bookmark(
-        contentId,
-        this.bookmarks.includes(parseInt(contentId))
-      );
-
-      if (result) {
-      }
+      this.bookmark(contentId, this.bookmarks.includes(parseInt(contentId)));
     },
     loadAttractionList(sidoCode) {
       this.$store.dispatch(
@@ -75,13 +75,11 @@ export default {
       this.$store.dispatch(`${userStore}/AC_USER_LOAD_BOOKMARK`, userId);
     },
     loadStore() {
-      //코드실행후 북마크 배열 갱신
-      console.log("북마크 배열 갱신!");
-      this.loadAttractionBookMark();
+      //코드실행후 배열 갱신
+      console.log("배열 갱신!");
       const sidoCode = router.history.current.params.sidoCode;
       console.log("sidoCode Params: " + sidoCode);
       this.loadAttractionList(sidoCode);
-      return;
     }
   },
   mounted() {
