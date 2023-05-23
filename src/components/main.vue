@@ -51,13 +51,17 @@
         <template v-slot:content>
           <router-link
             :to="{
-              name: 'AttractionDetail',
+              name: 'AttractionList',
               params: {
-                contentId: item.contentId
+                sidoCode: item.sidoCode
               }
             }"
           >
-            <img class="attraction_slide_img" :src="item.url" />
+            <img
+              class="attraction_slide_img"
+              :src="item.url"
+              onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpizjtvgskfw6Wuu2sLTi2_1vW1gJgFPFtMw&usqp=CAU';"
+            />
             <a class="attraction_slid_img_text" href="#">{{ item.cityName }}</a>
             <a href="#"></a>
           </router-link>
@@ -116,7 +120,11 @@
                 }
               }"
             >
-              <img class="attraction_slide_img" :src="item.firstImage" />
+              <img
+                class="attraction_slide_img"
+                :src="item.firstImage"
+                onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpizjtvgskfw6Wuu2sLTi2_1vW1gJgFPFtMw&usqp=CAU';"
+              />
               <a class="attraction_slid_img_text" href="#">{{ item.title }}</a>
               <a href="#"></a>
             </router-link>

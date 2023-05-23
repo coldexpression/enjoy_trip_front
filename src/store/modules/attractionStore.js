@@ -63,6 +63,7 @@ const attractionStore = {
     },
     AC_ATTRACTION_DETAIL_INFO_LOAD: (context, payload) => {
       console.log("AC_ATTRACTION_DETAIL_LOAD");
+      console.log("payload : " + payload);
       axios.get(`attraction/${payload}`).then(res => {
         console.log("관광지 상세 정보 조회 성공");
         console.log(res.data);
@@ -71,11 +72,20 @@ const attractionStore = {
     },
     AC_ATTRACTION_LIST_LOAD: (context, payload) => {
       console.log("AC_ATTRACTION_LIST_LOAD");
-      axios.get("attraction/list").then(res => {
-        console.log("관광지 상세 정보 조회 성공");
-        console.log(res.data);
-        context.commit("MU_LOAD_ATTRACTION_LIST", res.data);
-      });
+      console.log("payload : " + payload);
+      if (payload == undefined) {
+        axios.get("attraction/list").then(res => {
+          console.log("관광지 상세 정보 조회 성공");
+          console.log(res.data);
+          context.commit("MU_LOAD_ATTRACTION_LIST", res.data);
+        });
+      } else {
+        axios.get(`attraction/list/${payload}`).then(res => {
+          console.log("관광지 상세 정보 조회 성공");
+          console.log(res.data);
+          context.commit("MU_LOAD_ATTRACTION_LIST", res.data);
+        });
+      }
     }
   }
 };

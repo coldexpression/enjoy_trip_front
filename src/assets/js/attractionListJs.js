@@ -54,8 +54,11 @@ export default {
       console.log("북마크 배열 갱신!");
       this.loadAttractionBookMark();
     },
-    loadAttractionList() {
-      this.$store.dispatch(`${attractionStore}/AC_ATTRACTION_LIST_LOAD`);
+    loadAttractionList(sidoCode) {
+      this.$store.dispatch(
+        `${attractionStore}/AC_ATTRACTION_LIST_LOAD`,
+        sidoCode
+      );
     },
     loadAttractionBookMark(userId) {
       this.$store.dispatch(`${userStore}/AC_USER_LOAD_BOOKMARK`, userId);
@@ -63,7 +66,9 @@ export default {
   },
   mounted() {
     console.log("list - mounted!!");
-    this.loadAttractionList();
+    const sidoCode = router.history.current.params.sidoCode;
+    console.log("sidoCode Params: " + sidoCode);
+    this.loadAttractionList(sidoCode);
     // this.$store.dispatch(`${attractionStore}/AC_TOP_INFO_LOAD`);
   }
 };
