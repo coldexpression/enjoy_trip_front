@@ -45,16 +45,20 @@ export default {
   },
   methods: {
     bookmark(contentId, marked) {
+      var payload = {
+        contentId: contentId,
+        contentName: ""
+      };
       //버튼의 상태에 따라서 다른 메소드 실행
       if (marked) {
         console.log("북마크에서 삭제");
-        this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, contentId);
+        this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, payload);
       } else {
         console.log("북마크에 추가");
-        var name = prompt("저장할 이름");
-        console.log("입력된 이름 :" + name);
-        console.log(this);
-        this.$store.dispatch(`${userStore}/AC_REGIST_BOOKMARK`, contentId);
+        payload.contentName = prompt("저장할 이름");
+        console.log("입력된 정보 :");
+        console.log(payload);
+        this.$store.dispatch(`${userStore}/AC_REGIST_BOOKMARK`, payload);
       }
     },
 
