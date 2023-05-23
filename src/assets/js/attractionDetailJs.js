@@ -20,7 +20,12 @@ export default {
     }),
     ...mapGetters(userStore, {
       storeLoginState: "GET_LOGIN_STATE"
-    })
+    }),
+    bookmarks() {
+      return this.storeBookMarkInfo.map(bookmark => {
+        return parseInt(bookmark.contentId);
+      });
+    }
   },
   watch: {},
   methods: {
@@ -73,17 +78,21 @@ export default {
       this.loadMaker();
     },
     clickLike(flag) {
-      const contentId = router.history.current.params.contentId;
-      console.log("좋아요 클릭 : ", contentId);
-
-      if (flag == 0) {
-        this.$store.dispatch(`${userStore}/AC_REGIST_BOOKMARK`, contentId);
-        this.bookMarkCheck = true;
-        console.log("북마크 등록하기");
+      const contentId = this.storeAttractionDetailInfo.contentId;
+      var payload = {
+        contentId: contentId,
+        contentName: ""
+      };
+      //버튼의 상태에 따라서 다른 메소드 실행
+      if (flag) {
+        console.log("북마크에서 삭제");
+        this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, payload);
       } else {
-        this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, contentId);
-        this.bookMarkCheck = false;
-        console.log("북마크 삭제하기");
+        console.log("북마크에 추가");
+        payload.contentName = prompt("저장할 이름");
+        console.log("입력된 정보 :");
+        console.log(payload);
+        this.$store.dispatch(`${userStore}/AC_REGIST_BOOKMARK`, payload);
       }
     }
   },

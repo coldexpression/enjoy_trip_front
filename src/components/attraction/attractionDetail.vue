@@ -28,7 +28,11 @@
               <a v-if="storeLoginState">
                 <font-awesome-icon
                   class="heart_icon"
-                  v-if="bookMarkCheck"
+                  v-if="
+                    bookmarks.includes(
+                      parseInt(storeAttractionDetailInfo.contentId)
+                    )
+                  "
                   @click="clickLike(1)"
                   :icon="['fa-solid', 'fa-heart']"
                 />
