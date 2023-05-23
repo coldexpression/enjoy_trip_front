@@ -1,6 +1,5 @@
 import { mapGetters } from "vuex";
 import { nFormatter } from "./filters";
-import { bookmarkDelete } from "./bookmark";
 
 const userStore = "userStore";
 
@@ -21,9 +20,9 @@ export default {
     nFormatter
   },
   methods: {
-    delete(contentId) {
+    bookmarkClick(contentId) {
       console.log("데이터 삭제");
-      bookmarkDelete(contentId);
+      this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, contentId);
       router.push("/likepage");
     },
     loadAttractionBookMark(userId) {

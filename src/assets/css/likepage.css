@@ -51,11 +51,19 @@ li.detail_list_item {
   margin-bottom: 2em;
 }
 
+.detail_name {
+  font-weight: bold;
+  font-size: 1.7em;
+  padding-top: 0.5em;
+  height: 2em;
+  display: block;
+}
+
 .detail_title {
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1em;
   padding-top: 0.5em;
-  height: 4em;
+  height: 3em;
   display: block;
 }
 

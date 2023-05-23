@@ -187,11 +187,17 @@ const userStore = {
     },
     AC_REGIST_BOOKMARK: (context, payload) => {
       console.log("AC_REGIST_BOOKMARK !!!");
-      axios.post(`attraction/${payload}/likeUp`).then(res => {
-        console.log("북마크 등록 성공");
-        console.log(res.data);
-        context.dispatch("AC_USER_LOAD_BOOKMARK");
-      });
+      axios
+        .post(`attraction/${payload.contentId}/likeUp`, null, {
+          params: {
+            name: payload.contentName
+          }
+        })
+        .then(res => {
+          console.log("북마크 등록 성공");
+          console.log(res.data);
+          context.dispatch("AC_USER_LOAD_BOOKMARK");
+        });
     },
     AC_REMOVE_BOOKMARAK: (context, payload) => {
       console.log("AC_REMOVE_BOOKMARAK !!!");

@@ -22,7 +22,7 @@
               onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpizjtvgskfw6Wuu2sLTi2_1vW1gJgFPFtMw&usqp=CAU';"
           /></router-link>
           <ul>
-            <li class="detail_title">
+            <li class="detail_name">
               <router-link
                 :to="{
                   name: 'AttractionDetail',
@@ -30,10 +30,10 @@
                     contentId: Attraction.contentId
                   }
                 }"
-                >{{ Attraction.title }}</router-link
+                >{{ Attraction.name }}</router-link
               >
             </li>
-
+            <li class="detail_title">{{ Attraction.title }}</li>
             <li class="detail_addr">{{ Attraction.addr1 }}</li>
             <li class="detail_bookmark"></li>
             <li>

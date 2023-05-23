@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="detail_main">
-      <h1 class="list_title">{{ title }}</h1>
+      <h1 class="list_title">{{ storeAttractionTitle }}의 관광지</h1>
       <ul class="detail_list">
         <li
           class="detail_list_item"

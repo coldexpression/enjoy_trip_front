@@ -6,6 +6,7 @@ const attractionStore = {
   // 초기 상태
   state: {
     topInfo: [],
+    attractionTitle: "",
     attractionDetail: {
       contentId: "",
       title: "",
@@ -31,6 +32,9 @@ const attractionStore = {
     },
     MU_LOAD_ATTRACTION_LIST(state, payload) {
       state.attractionList = payload;
+    },
+    MU_LOAD_ATTRACTION_TITLE(state, payload) {
+      state.attractionTitle = payload;
     }
   },
   // 공동의 상태를 계산하여 state의 값을 반환
@@ -49,6 +53,11 @@ const attractionStore = {
       console.log("GET_ATTRACTION_LIST!");
       console.log(state.attractionList);
       return state.attractionList;
+    },
+    GET_ATTRACTION_TITLE: state => {
+      console.log("GET_ATTRACTION_TITLE !!");
+      console.log(state.attractionTitle);
+      return state.attractionTitle;
     }
   },
   // actions 는 mutations 와 달리 비도기적 로직을 정의 할 수 있음
@@ -63,6 +72,7 @@ const attractionStore = {
     },
     AC_ATTRACTION_DETAIL_INFO_LOAD: (context, payload) => {
       console.log("AC_ATTRACTION_DETAIL_LOAD");
+      console.log("payload : " + payload);
       axios.get(`attraction/${payload}`).then(res => {
         console.log("관광지 상세 정보 조회 성공");
         console.log(res.data);
@@ -71,11 +81,25 @@ const attractionStore = {
     },
     AC_ATTRACTION_LIST_LOAD: (context, payload) => {
       console.log("AC_ATTRACTION_LIST_LOAD");
-      axios.get("attraction/list").then(res => {
-        console.log("관광지 상세 정보 조회 성공");
-        console.log(res.data);
-        context.commit("MU_LOAD_ATTRACTION_LIST", res.data);
-      });
+      console.log("payload : " + payload);
+      if (payload == undefined) {
+        axios.get("attraction/list").then(res => {
+          console.log("관광지 상세 정보 조회 성공");
+          console.log(res.data);
+          context.commit("MU_LOAD_ATTRACTION_LIST", res.data);
+        });
+      } else {
+        axios.get(`attraction/list/${payload}`).then(res => {
+          console.log("관광지 상세 정보 조회 성공");
+          console.log(res.data);
+          context.commit("MU_LOAD_ATTRACTION_LIST", res.data);
+        });
+      }
+    },
+    AC_ATTRACTION_TITLE_LOAD: (context, payload) => {
+      console.log("AC_ATTRACTION_TITLE_LOAD");
+      console.log("payload : ", payload);
+      context.commit("MU_LOAD_ATTRACTION_TITLE", payload);
     }
   }
 };
