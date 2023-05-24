@@ -1,0 +1,181 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "SUITE-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+/*  ALL  */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "SUITE-Regular";
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* -- login -- */
+.login {
+  height: calc(100vh - 351px);
+  min-height: 450px;
+  padding-bottom: 100px;
+}
+
+.signin {
+  min-height: 700px;
+  padding-bottom: 100px;
+}
+
+.userInfo {
+  min-height: 1000px;
+  padding-bottom: 100px;
+}
+
+.active {
+  border-color: rgb(255, 109, 109);
+}
+/*main 섹션*/
+
+.content {
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  padding-top: 5%;
+  transform: translate(-50%, 0%);
+  padding-bottom: 30px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: start; */
+}
+
+.content h1 {
+  padding-bottom: 10px;
+}
+
+.content h2 {
+  padding-top: 40px;
+}
+
+/*사용자정보 */
+.info {
+  border: 1px rgb(197, 197, 197) solid;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 50px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.info > p {
+  text-align: left;
+  margin-left: 15%;
+  margin-top: 10px;
+  width: 250px;
+}
+
+.alert {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.info > p > input {
+  width: 280px;
+  height: 40px;
+  text-align: left;
+  padding-left: 10px;
+  margin-top: 1px;
+}
+
+.info > p > label {
+  font-size: 15px;
+}
+
+.remain {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  left: 0px;
+  /* width: 1px; */
+}
+
+#remainLogin {
+  zoom: 0.5;
+  width: 10%;
+  margin-right: 5%;
+  margin-left: 0%;
+}
+
+#advertisement {
+  zoom: 0.3;
+  display: inline-block;
+}
+/*로그인 옵션*/
+.option {
+  display: flex;
+  flex-direction: column;
+}
+.option > p {
+  display: flex;
+  flex-direction: row;
+}
+.option > a {
+  text-decoration: none;
+  color: grey;
+  font-size: 0.9rem;
+  text-align: right;
+}
+/*이용약관 */
+.agreement p {
+  font-size: 0.9rem;
+}
+
+/*버튼*/
+form .submit {
+  width: 95%;
+  height: 40px;
+  margin-left: 3%;
+  margin-top: 50px;
+  font-size: large;
+  background-color: rgb(55, 224, 255);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/*버튼*/
+form .delete_btn {
+  width: 95%;
+  height: 40px;
+  margin-left: 3%;
+  margin-top: 15px;
+  font-size: large;
+  background-color: rgb(255, 60, 60);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+form .regist_btn {
+  width: 95%;
+  height: 40px;
+  margin-left: 3%;
+  margin-top: 5%;
+  font-size: large;
+  background-color: rgb(55, 224, 255);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}

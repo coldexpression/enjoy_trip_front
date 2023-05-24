@@ -2,7 +2,9 @@
   <div>
     <section class="detail_main">
       <h1>게시판</h1>
-      <button class="custom-btn btn-16"><span>글 작성하기</span></button>
+      <button class="custom-btn btn-16" @click="regist()">
+        <span>글 작성하기</span>
+      </button>
       <div class="board">
         <table>
           <tr>
@@ -13,12 +15,20 @@
             <th>조회수</th>
           </tr>
           <!-- template는 가상의 태그 -->
-          <tr v-for="(board, idx) in storeBoardList" :key="board.num">
-            <!-- <td>
-              <router-link :to="{ path: 'board/page/:board.num' }">
-                {{ idx + 1 + "번" }}</router-link
-              >
-            </td> -->
+          <tr
+            v-for="(board, idx) in storeBoardList"
+            :key="board.num"
+            @click="move(board.num)"
+          >
+            <!-- <td> -->
+            <!-- <router-link :to="{ path: `/board/page/${board.num}` }"> -->
+            <!-- <router-link
+                :to="{ name: `boardDetail`, params: { num: board.num } }"
+              > -->
+            <!-- <router-link :to="{ path: 'board/page/' + board.num }"></router-link> -->
+            <!-- {{ idx + 1 + "번" }}</router-link
+              > -->
+            <!-- </td> -->
             <td>
               {{ idx + 1 + "번" }}
             </td>

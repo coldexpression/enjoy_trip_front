@@ -25,7 +25,7 @@
               </p>
               <p>
                 내용<br /><b-form-input
-                  type="text"
+                  type="te"
                   name="content"
                   v-model.trim="content"
                   class="content"
@@ -62,7 +62,7 @@ export default {
     boardRegist() {
       const url = "http://localhost:9000/api/board/regist";
       axios
-        .post(url, this.book)
+        .post(url, this.board)
         .then(() => {
           alert("등록성공");
         })
@@ -75,5 +75,5 @@ export default {
 };
 </script>
 <style scoped>
-@import "../../assets/css/user.css";
+@import "../../assets/css/boardRegist.css";
 </style>

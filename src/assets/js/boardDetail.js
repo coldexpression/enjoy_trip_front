@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     ...mapGetters(boardStore, {
-      storeBoardList: "GET_BOARD_LIST"
+      storeBoard: "GET_BOARD_INFO"
     }),
     ...mapGetters(userStore, {
       storeUserId: "GET_USER_ID"
@@ -23,22 +23,19 @@ export default {
     nFormatter
   },
   methods: {
-    loadBoardList() {
+    loadBoard(num) {
       console.log(this);
-      this.$store.dispatch(`${boardStore}/AC_BOARD_LIST_LOAD`);
+      this.$store.dispatch(`${boardStore}/AC_BOARD_DETAIL_INFO_LOAD`, num);
     },
     move(num) {
       console.log("move 호출");
       this.$router.push({ name: "boardDetail", params: { num: num } });
-    },
-    regist() {
-      console.log("게시글 작성하기 호출");
-      this.$router.push({ name: "boardRegist" });
     }
   },
   mounted() {
-    console.log("list - mounted!!");
-    this.loadBoardList();
-    // this.$store.dispatch(`${attractionStore}/AC_TOP_INFO_LOAD`);
+    console.log("detail - mounted!!");
+    console.log(this.$router);
+    const num = router.history.current.params.num;
+    this.loadBoard(num);
   }
 };

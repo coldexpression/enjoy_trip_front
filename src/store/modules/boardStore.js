@@ -45,6 +45,15 @@ const boardStore = {
         console.log(res.data);
         context.commit("MU_LOAD_BOARD_LIST", res.data);
       });
+    },
+    AC_BOARD_DETAIL_INFO_LOAD: (context, payload) => {
+      console.log("AC_BOARD_DETAIL_LOAD");
+      console.log("payload : " + payload);
+      axios.get(`/board/page/${payload}`).then(res => {
+        console.log("게시글 상세 정보 조회 성공");
+        console.log(res.data);
+        context.commit("MU_LOAD_BOARD_INFO", res.data);
+      });
     }
   }
 };

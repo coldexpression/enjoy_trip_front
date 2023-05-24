@@ -9,38 +9,38 @@
 * {
   font-family: "SUITE-Regular";
 }
-h1{
+h1 {
   margin-top: auto;
   margin-left: auto;
   margin-bottom: 0px;
   text-align: center;
   padding-top: 20px;
 }
-.board{
+.board {
   display: flex;
   /* background-color: aqua; */
   text-align: center;
 }
-table{
+table {
   width: 85%;
   margin: auto;
   margin-bottom: 50px;
   padding-bottom: 30px;
 }
-th{
+th {
   border-top: 3px solid black;
   background-color: rgba(224, 224, 224, 0.376);
   padding: 5px 0px;
 }
-td{
+td {
   border-top: 1px solid rgba(128, 128, 128, 0.5);
   border-bottom: 1px solid rgba(128, 128, 128, 0.5);
   padding: 5px 20px;
   text-align: center;
 }
 
-tr:not(:first-of-type):hover{
-  background-color: rgba(211, 247, 235, 0.513);
+tr:not(:first-of-type):hover {
+  background-color: rgba(211, 243, 247, 0.513);
 }
 
 button {
@@ -53,22 +53,21 @@ button {
   color: #fff;
   border-radius: 5px;
   padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
 /*8*/
 .btn-8 {
   background-color: #f0ecfc;
-background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
+  background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
   line-height: 42px;
   padding: 0;
   border: none;
@@ -92,25 +91,25 @@ background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
     inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
   transition: all 0.3s ease;
 }
-.btn-8:before{
+.btn-8:before {
   height: 0%;
   width: 2px;
 }
 .btn-8:after {
- width: 0%;
- height: 2px;
+  width: 0%;
+  height: 2px;
 }
 .btn-8:hover:before {
- height: 100%;
+  height: 100%;
 }
 .btn-8:hover:after {
- width: 100%;
+  width: 100%;
 }
-.btn-8:hover{
- background: transparent;
+.btn-8:hover {
+  background: transparent;
 }
-.btn-8 span:hover{
- color: #c797eb;
+.btn-8 span:hover {
+  color: #c797eb;
 }
 .btn-8 span:before,
 .btn-8 span:after {
@@ -140,7 +139,6 @@ background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
   width: 100%;
 }
 
-
 /* 16 */
 .btn-16 {
   border: none;
@@ -155,11 +153,8 @@ background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
   left: 0;
   direction: rtl;
   z-index: -1;
-  box-shadow:
-   -7px -7px 20px 0px #fff9,
-   -4px -4px 5px 0px #fff9,
-   7px 7px 20px 0px #0002,
-   4px 4px 5px 0px #0001;
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
   transition: all 0.3s ease;
 }
 .btn-16:hover {

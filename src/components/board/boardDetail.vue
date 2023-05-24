@@ -2,41 +2,42 @@
   <div>
     <section class="detail_main">
       <h1>게시글</h1>
-      <hr />
+      <!-- <hr /> -->
       <div class="board">
         <table>
           <tr>
-            <th colspan="2">글번호</th>
+            <th colspan="2">
+              {{ storeBoard.title }}
+            </th>
           </tr>
           <tr>
             <td>등록일</td>
-            <td>내용</td>
+            <td>{{ storeBoard.writeDate }}</td>
           </tr>
           <tr>
             <td>작성자</td>
-            <td>싸피님</td>
+            <td>{{ storeBoard.userID }}</td>
           </tr>
           <tr>
             <td>조회수</td>
-            <td>2222</td>
+            <td>{{ storeBoard.readCount }}</td>
           </tr>
         </table>
 
         <div class="content">
           <p>
-            아러ㅏㅇ널ㅇ나ㅣㅜㅏㄴㅇㅎ어ㅓ니어랑ㄹㄴㅇㄹㄴㅇㄹㅇ나ㅣㅜ란이라ㅣㅜㄴ아ㅣ런아ㅣㅜ리ㅏㅇ누라ㅣㅜㅏ
-            fsfsdfssfdsfdsdfsfsdfsdfㅏㅣ
+            {{ storeBoard.content }}
           </p>
         </div>
       </div>
       <table class="move">
         <tr>
           <td>이전글</td>
-          <td>제목ㅇㅇㄹ</td>
+          <td></td>
         </tr>
         <tr>
           <td>다음글</td>
-          <td>ㅇ너라ㅣㄴ이ㅏ루ㅏㅣ</td>
+          <td></td>
         </tr>
       </table>
     </section>
@@ -44,8 +45,8 @@
 </template>
 
 <script>
-// import boardList from "@/assets/js/BoardList.js";
-// export default boardList;
+import boardDetail from "@/assets/js/BoardDetail.js";
+export default boardDetail;
 </script>
 
 <style scoped>
