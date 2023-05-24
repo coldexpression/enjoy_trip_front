@@ -172,12 +172,14 @@ const userStore = {
       try {
         const response = await axios.post("user", user);
         console.log("탈퇴 성공!");
-        console.log(" 응답 객체 : ", res);
+        console.log(" 응답 객체 : ", response);
         context.commit("MU_LOGOUT");
         router.push("/");
+        return true;
       } catch (e) {
         console.log("탈퇴 실패 ㅠㅠ");
         console.log(e);
+        return false;
       }
     },
     AC_EDIT_BOOKMARK: (context, payload) => {

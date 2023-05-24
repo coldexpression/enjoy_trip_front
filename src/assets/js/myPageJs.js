@@ -10,6 +10,7 @@ const data = {
   errorNewPwdCheck: false,
   errorNewPwdConfirmCheck: false,
   errorNotSameAsNewPwd: false,
+  errorNotMatchPwd: false,
   errors: []
 };
 export default {
@@ -35,6 +36,9 @@ export default {
     }
   },
   methods: {
+    userLogout() {
+      this.$store.dispatch(`${userStore}/AC_USER_LOGOUT`);
+    },
     submitEdit() {
       console.log("수정 버튼 클릭");
       console.log(this);
@@ -115,7 +119,22 @@ export default {
         pwd: this.pwd
       };
 
-      this.$store.dispatch(`${userStore}/AC_USER_DELETE`, deleteUserInfo);
+      this.$store
+        .dispatch(`${userStore}/AC_USER_DELETE`, deleteUserInfo)
+        .then(res => {
+          if (res) {
+            console.log("탈퇴 성공!");
+            router.push("/");
+            this.userLogout();
+          } else {
+            console.log("탈퇴 실패");
+            this.errors.push({
+              flag: "pwd",
+              context: "비밀번호가 일치하지 않습니다"
+            });
+            this.errorNotMatchPwd = true;
+          }
+        });
     },
     errorInit() {
       console.log("초기화!!");
@@ -124,6 +143,7 @@ export default {
       this.errorNewPwdCheck = false;
       this.errorNewPwdConfirmCheck = false;
       this.errorNotSameAsNewPwd = false;
+      this.errorNotMatchPwd = false;
     },
     validPassword(password) {
       let reg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;

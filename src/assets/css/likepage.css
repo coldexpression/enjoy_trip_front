@@ -33,6 +33,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  min-height: 40em;
 }
 
 .detail_list * {

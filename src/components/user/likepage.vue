@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="like_main">
     <section class="detail_main">
       <h1 class="list_title">{{ storeUserId }}님의 좋아요 페이지</h1>
       <ul class="detail_list">

@@ -105,6 +105,31 @@ div > header {
 
 /* ------ footer css ------*/
 .footer {
-  height: 5rem;
+  clear: both;
+  width: 100%;
+  height: 80px;
   background-color: black;
+}
+
+.footer .copyright {
+  float: left;
+  width: 50%;
+}
+
+.footer .copyright p {
+  font-size: 14px;
+  color: #999;
+  padding: 32px 0 0 40px;
+}
+
+.footer .context {
+  float: right;
+  width: 50%;
+}
+
+.footer .context p {
+  font-size: 14px;
+  color: #999;
+  padding: 32px 40px 0 0;
+  text-align: right;
 }
