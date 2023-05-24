@@ -61,6 +61,22 @@
           </ul>
         </li>
       </ul>
+      <b-row align-h="center" align-content="center">
+        <b-col cols="auto">
+          <b-pagination
+            v-model="currentPage"
+            :total-rows="storeAttractionListCount"
+            :per-page="10"
+            @page-click="pageClick"
+            aria-controls="my-table"
+            first-number
+            last-number
+            hide-goto-end-buttons
+            hide-ellipsis
+            align="center"
+          ></b-pagination>
+        </b-col>
+      </b-row>
     </section>
   </div>
 </template>

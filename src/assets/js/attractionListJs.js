@@ -8,7 +8,9 @@ const userStore = "userStore";
 export default {
   data() {
     return {
-      title: ""
+      title: "",
+      currentPage: 0,
+      perPage: 10
     };
   },
   computed: {
@@ -23,6 +25,9 @@ export default {
     }),
     ...mapGetters(attractionStore, {
       storeAttractionTitle: "GET_ATTRACTION_TITLE"
+    }),
+    ...mapGetters(attractionStore, {
+      storeAttractionListCount: "GET_ATTRACTION_LIST_COUNT"
     }),
     bookmarks() {
       return this.storeBookMarkInfo.map(bookmark => {
@@ -76,10 +81,17 @@ export default {
       }
       this.bookmark(contentId, this.bookmarks.includes(parseInt(contentId)));
     },
-    loadAttractionList(sidoCode) {
+    loadAttractionList() {
+      const sidoCode = router.history.current.params.sidoCode;
+      const payload = {
+        sidoCode: sidoCode,
+        currentPage: this.currentPage,
+        perPage: this.perPage
+      };
+      console.log("sidoCode Params: " + payload);
       this.$store.dispatch(
         `${attractionStore}/AC_ATTRACTION_LIST_LOAD`,
-        sidoCode
+        payload
       );
     },
     loadAttractionBookMark(userId) {
@@ -89,8 +101,19 @@ export default {
       //코드실행후 배열 갱신
       console.log("배열 갱신!");
       const sidoCode = router.history.current.params.sidoCode;
-      console.log("sidoCode Params: " + sidoCode);
-      this.loadAttractionList(sidoCode);
+      const payload = {
+        sidoCode: sidoCode,
+        currentPage: this.currentPage,
+        perPage: this.perPage
+      };
+      console.log("sidoCode Params: " + payload);
+      this.loadAttractionList();
+    },
+    pageClick(button, page) {
+      console.log("버튼 클릭 ! : ", button);
+      console.log("버튼 클릭2 :: ", page);
+      this.currentPage = page;
+      this.loadAttractionList();
     }
   },
   mounted() {
@@ -98,8 +121,13 @@ export default {
     const sidoCode = router.history.current.params.sidoCode;
     const attractonTitle = router.history.current.params.cityName;
     console.log(router.history.current.params);
-    console.log("sidoCode Params: " + sidoCode);
-    this.loadAttractionList(sidoCode);
+    const payload = {
+      sidoCode: sidoCode,
+      currentPage: this.currentPage,
+      perPage: this.perPage
+    };
+    console.log("sidoCode Params: ", payload);
+    this.loadAttractionList();
     if (attractonTitle) {
       this.$store.dispatch(
         `${attractionStore}/AC_ATTRACTION_TITLE_LOAD`,
