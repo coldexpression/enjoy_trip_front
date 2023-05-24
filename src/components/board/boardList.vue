@@ -2,22 +2,33 @@
   <div>
     <section class="detail_main">
       <h1>게시판</h1>
-      <table>
-        <tr>
-          <th>글번호</th>
-          <th>제목</th>
-          <th>작성자</th>
-        </tr>
-        <!-- template는 가상의 태그 -->
-        <tr v-for="(board, idx) in storeBoardList" :key="board.num">
-          <!-- vue 안에 있는것만 찾을 수 있음 -->
-          <td>{{ idx + 1 + "번" }}</td>
-          <td>{{ board.title }}</td>
-          <td>{{ board.userID }}</td>
-        </tr>
-      </table>
-
-      <router-link to="/board/regist">글 작성하기</router-link>
+      <button class="custom-btn btn-16"><span>글 작성하기</span></button>
+      <div class="board">
+        <table>
+          <tr>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회수</th>
+          </tr>
+          <!-- template는 가상의 태그 -->
+          <tr v-for="(board, idx) in storeBoardList" :key="board.num">
+            <!-- <td>
+              <router-link :to="{ path: 'board/page/:board.num' }">
+                {{ idx + 1 + "번" }}</router-link
+              >
+            </td> -->
+            <td>
+              {{ idx + 1 + "번" }}
+            </td>
+            <td>{{ board.title }}</td>
+            <td>{{ board.userID }}</td>
+            <td>{{ board.writeDate }}</td>
+            <td>{{ board.readCount }}</td>
+          </tr>
+        </table>
+      </div>
     </section>
   </div>
 </template>
@@ -28,6 +39,5 @@ export default boardList;
 </script>
 
 <style scoped>
-/* @import "../../assets/css/detail.css"; */
-@import "../../assets/css/list.css";
+@import "../../assets/css/boardList.css";
 </style>

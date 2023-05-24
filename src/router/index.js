@@ -12,7 +12,7 @@ import VueCookies from "vue-cookies";
 import VueRouter from "vue-router";
 import Board from "@/components/board/boardList";
 import BoardRegist from "@/components/board/boardRegist";
-
+import BoardDetail from "@/components/board/boardDetail";
 Vue.use(Router);
 
 const router = new VueRouter();
@@ -92,6 +92,11 @@ export default new Router({
       path: "/board/regist",
       name: "boardRegist",
       component: BoardRegist
+    },
+    {
+      path: "/board/page/:num",
+      name: "boardDetail",
+      component: BoardDetail
     }
   ]
 });

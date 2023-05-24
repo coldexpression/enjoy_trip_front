@@ -26,6 +26,9 @@ export default {
     loadBoardList() {
       console.log(this);
       this.$store.dispatch(`${boardStore}/AC_BOARD_LIST_LOAD`);
+    },
+    move(num) {
+      console.log(num);
     }
   },
   mounted() {
