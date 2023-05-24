@@ -21,6 +21,10 @@ h1 {
   /* background-color: aqua; */
   text-align: center;
 }
+
+.detail_main {
+  min-height: 1000px;
+}
 table {
   width: 85%;
   margin: auto;

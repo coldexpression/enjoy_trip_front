@@ -11,7 +11,8 @@
                 errorPwdCheck ||
                   errorNewPwdCheck ||
                   errorNewPwdConfirmCheck ||
-                  errorNotSameAsNewPwd
+                  errorNotSameAsNewPwd ||
+                  errorNotMatchPwd
               "
               variant="danger"
             >

@@ -112,6 +112,10 @@ ul {
   /* width: 1px; */
 }
 
+.detail_list {
+  min-height: 100%;
+}
+
 #remainLogin {
   zoom: 0.5;
   width: 10%;

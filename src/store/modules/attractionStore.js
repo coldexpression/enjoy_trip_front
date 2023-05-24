@@ -20,7 +20,8 @@ const attractionStore = {
       likeCount: 0,
       overView: 0
     },
-    attractionList: []
+    attractionList: [],
+    attractionCount: 0
   },
   // state를 변경시킬수 있는 유일한 방법
   mutations: {
@@ -31,7 +32,9 @@ const attractionStore = {
       state.attractionDetail = payload;
     },
     MU_LOAD_ATTRACTION_LIST(state, payload) {
-      state.attractionList = payload;
+      console.log("MU! LOAD ", payload);
+      state.attractionList = payload.list;
+      state.attractionCount = payload.count;
     },
     MU_LOAD_ATTRACTION_TITLE(state, payload) {
       state.attractionTitle = payload;
@@ -58,6 +61,9 @@ const attractionStore = {
       console.log("GET_ATTRACTION_TITLE !!");
       console.log(state.attractionTitle);
       return state.attractionTitle;
+    },
+    GET_ATTRACTION_LIST_COUNT: state => {
+      return state.attractionCount;
     }
   },
   // actions 는 mutations 와 달리 비도기적 로직을 정의 할 수 있음
@@ -79,21 +85,46 @@ const attractionStore = {
         context.commit("MU_LOAD_ATTRACTION_DETAIL_INFO", res.data);
       });
     },
-    AC_ATTRACTION_LIST_LOAD: (context, payload) => {
+    AC_ATTRACTION_LIST_LOAD: async (context, payload) => {
       console.log("AC_ATTRACTION_LIST_LOAD");
       console.log("payload : " + payload);
-      if (payload == undefined) {
+      const sidoCode = payload.sidoCode;
+      const currentPage = payload.currentPage;
+      const perPage = payload.perPage;
+      if (sidoCode == undefined) {
         axios.get("attraction/list").then(res => {
           console.log("관광지 상세 정보 조회 성공");
           console.log(res.data);
           context.commit("MU_LOAD_ATTRACTION_LIST", res.data);
         });
       } else {
-        axios.get(`attraction/list/${payload}`).then(res => {
-          console.log("관광지 상세 정보 조회 성공");
-          console.log(res.data);
-          context.commit("MU_LOAD_ATTRACTION_LIST", res.data);
-        });
+        const count = await axios
+          .get(`attraction/list/${sidoCode}/count`)
+          .then(res => {
+            console.log("관광지 목록 카운트 조회 성공");
+            console.log(res);
+            console.log(res.data);
+            return res.data;
+          });
+
+        console.log("카운트 조회 : ", count);
+        await axios
+          .get(`attraction/list/${sidoCode}`, {
+            params: {
+              currentPage: currentPage,
+              perPage: perPage
+            }
+          })
+          .then(res => {
+            console.log("관광지 목록 정보 조회 성공");
+            console.log(res.data);
+            const listInfo = {
+              list: res.data,
+              count: count
+            };
+            console.log("paylaod~~ : ", listInfo);
+            context.commit("MU_LOAD_ATTRACTION_LIST", listInfo);
+          });
       }
     },
     AC_ATTRACTION_TITLE_LOAD: (context, payload) => {

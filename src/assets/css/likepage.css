@@ -33,6 +33,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  min-height: 40em;
 }
 
 .detail_list * {
@@ -89,4 +90,13 @@ li.detail_list_item {
 
 .heart_icon:hover {
   color: palevioletred;
+}
+
+.no_bookmark {
+  height: 643px;
+  padding-top: 100px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 4rem;
+  background-color: lightgrey;
 }
