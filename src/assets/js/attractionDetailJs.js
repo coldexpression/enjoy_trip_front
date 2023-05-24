@@ -90,6 +90,10 @@ export default {
       } else {
         console.log("북마크에 추가");
         payload.contentName = prompt("저장할 이름");
+        if (payload.contentName == "" || payload.contentName == null) {
+          alert("이름이 입력되지 않았습니다. 북마크로 저장하지 않습니다");
+          return;
+        }
         console.log("입력된 정보 :");
         console.log(payload);
         this.$store.dispatch(`${userStore}/AC_REGIST_BOOKMARK`, payload);
