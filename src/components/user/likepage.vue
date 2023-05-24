@@ -2,7 +2,7 @@
   <div class="like_main">
     <section class="detail_main">
       <h1 class="list_title">{{ storeUserId }}님의 좋아요 페이지</h1>
-      <ul class="detail_list">
+      <ul v-if="storeBookMarkInfo.length > 0" class="detail_list">
         <li
           class="detail_list_item"
           v-for="Attraction in storeBookMarkInfo"
@@ -55,6 +55,7 @@
           </ul>
         </li>
       </ul>
+      <div class="no_bookmark" v-else>찜한 관광지 목록이 없습니다.</div>
     </section>
   </div>
 </template>

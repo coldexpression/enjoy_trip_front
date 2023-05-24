@@ -21,9 +21,12 @@ export default {
   },
   methods: {
     bookmarkClick(contentId) {
+      var payload = {
+        contentId: contentId,
+        contentName: ""
+      };
       console.log("데이터 삭제");
-      this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, contentId);
-      router.push("/likepage");
+      this.$store.dispatch(`${userStore}/AC_REMOVE_BOOKMARAK`, payload);
     },
     loadAttractionBookMark(userId) {
       this.$store.dispatch(`${userStore}/AC_USER_LOAD_BOOKMARK`, userId);

@@ -105,6 +105,13 @@
   background-color: white;
 }
 
+.wrap {
+  margin: 0%;
+  padding: 0;
+  width: 100%;
+  display: flex;
+}
+
 /* .attraction_slide {
   background-color: white;
 } */
@@ -144,6 +151,11 @@
 .attraction_slide > a {
   color: while;
   text-decoration: none;
+}
+
+.attraction_no_bookmark {
+  width: 1347px;
+  height: 255px;
 }
 
 .attraction_slid_enter_btn {

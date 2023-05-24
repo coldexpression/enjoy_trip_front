@@ -70,28 +70,6 @@
       </vueper-slide>
     </vueper-slides>
 
-    <!--메인 세션2 슬라이드-->
-    <!-- <h1 id="mainPhrases">국내 대표 관광지</h1>
-    <section>
-      <div id="slider">
-        <a href="#" class="control_next"> 오 </a>
-        <a href="#" class="control_prev"> 왼 </a>
-        <ul>
-          <li id="slide_one"></li>
-          <li id="slide_two"></li>
-          <li id="slide_three"></li>
-          <li id="slide_four"></li>
-        </ul>
-      </div> -->
-
-    <!-- <div class="slider_option">  -->
-    <!-- <input type="checkbox" id="checkbox" /> -->
-    <!-- <label for="checkbox">자동 넘김</label> -->
-    <!-- </div> -->
-    <!-- </section> -->
-
-    <!--메인 세션3 관광지2-->
-
     <div v-if="storeLoginState">
       <h1 class="mainPhrases">나의 여행지</h1>
       <vueper-slides
@@ -105,32 +83,43 @@
         :bullets="false"
         :touchable="false"
       >
-        <vueper-slide
-          class="attraction_slide"
-          v-for="(item, index) in storeBookMarkInfo"
-          :key="index"
-          :title="item.cityName"
-          :content="item.cityName"
-        >
-          <template v-slot:content>
-            <router-link
-              :to="{
-                name: 'AttractionDetail',
-                params: {
-                  contentId: item.contentId
-                }
-              }"
-            >
-              <img
-                class="attraction_slide_img"
-                :src="item.firstImage"
-                onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpizjtvgskfw6Wuu2sLTi2_1vW1gJgFPFtMw&usqp=CAU';"
-              />
-              <a class="attraction_slid_img_text" href="#">{{ item.title }}</a>
-              <a href="#"></a>
-            </router-link>
-          </template>
-        </vueper-slide>
+        <div v-if="storeBookMarkInfo.length > 0" class="wrap">
+          <vueper-slide
+            class="attraction_slide"
+            v-for="(item, index) in storeBookMarkInfo"
+            :key="index"
+            :title="item.cityName"
+            :content="item.cityName"
+          >
+            <template v-slot:content>
+              <router-link
+                :to="{
+                  name: 'AttractionDetail',
+                  params: {
+                    contentId: item.contentId
+                  }
+                }"
+              >
+                <img
+                  class="attraction_slide_img"
+                  :src="item.firstImage"
+                  onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpizjtvgskfw6Wuu2sLTi2_1vW1gJgFPFtMw&usqp=CAU';"
+                />
+                <a class="attraction_slid_img_text" href="#">{{
+                  item.title
+                }}</a>
+                <a href="#"></a>
+              </router-link>
+            </template>
+          </vueper-slide>
+        </div>
+        <div v-else class="wrap">
+          <img
+            src="../assets/img/noBookmark.png"
+            alt="북마크된 관광지가 없습니다."
+            class="attraction_no_bookmark"
+          />
+        </div>
       </vueper-slides>
     </div>
   </main>
