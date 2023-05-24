@@ -31,8 +31,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
 }
 
 .detail_list * {
@@ -67,6 +65,11 @@ li.detail_list_item {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  vertical-align: middle;
+}
+
+.storeLoginState {
+  position: relative;
 }
 
 .detail_location {
@@ -76,11 +79,15 @@ li.detail_list_item {
 }
 
 .location_button {
-  width: 5em;
+  width: 6em;
   height: 2em;
   margin-right: 5px;
   border-radius: 5px;
+  border-width: 0.5px;
+  border-color: rgb(15, 90, 201);
+  background-color: rgb(35, 140, 250);
   text-align: center;
+  color: white;
 }
 
 .map_area {
@@ -102,6 +109,10 @@ li.detail_list_item {
 }
 
 .heart_icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 45%;
+  left: 25%;
   color: pink;
 }
 
