@@ -26,6 +26,7 @@ export default {
   methods: {
     boardRegist() {
       const url = "http://localhost:9000/api/board/regist";
+      console.log(this.board);
       axios
         .post(url, this.board)
         .then(() => {

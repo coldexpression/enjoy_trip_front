@@ -14,19 +14,7 @@
                 />
               </router-link>
             </li>
-            <li>
-              <div class="search">
-                <input
-                  type="text"
-                  placeholder="관광지를 검색해보세요"
-                  style="background-color: rgb(236, 236, 236)"
-                />
-                <img
-                  id="search_img"
-                  src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png"
-                />
-              </div>
-            </li>
+            <li></li>
           </ul>
           <ul class="login_menu">
             <div v-if="storeLoginState">

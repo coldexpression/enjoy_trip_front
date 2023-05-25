@@ -6,6 +6,7 @@
         <span>목록으로</span>
       </button>
       <button
+        v-if="storeBoard.userID == storeUserId"
         class="custom-btn btn-16 deletebtn"
         @click="deleteboard(`${storeBoard.num}`)"
       >
@@ -39,13 +40,8 @@
         </div>
       </div>
       <table class="move">
-        <tr>
-          <td>이전글</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>다음글</td>
-          <td></td>
+        <tr class="move_tr">
+          <td class="move_td"></td>
         </tr>
       </table>
     </section>
