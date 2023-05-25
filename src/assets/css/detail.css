@@ -13,7 +13,7 @@
 }
 
 .detail_main {
-  width: 70%;
+  width: 68%;
   margin: 0 auto;
 }
 
@@ -22,8 +22,9 @@
   text-decoration: none !important;
   color: inherit !important;
   font-weight: bold;
-  padding-left: 3%;
-  padding-top: 1.5%;
+  padding-left: 1.1%;
+  padding-top: 0.2%;
+  padding-bottom: 1.5%;
 }
 
 .detail_list {

@@ -17,8 +17,9 @@
 
 .list_title {
   font-weight: bold;
-  margin-top: 1em;
-  padding-left: 2em;
+  padding-left: 1.1%;
+  padding-top: 1%;
+  padding-bottom: 1.5%;
 }
 
 .detail_img {
