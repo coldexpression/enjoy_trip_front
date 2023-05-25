@@ -2,7 +2,15 @@
   <div>
     <section class="detail_main">
       <h1>게시글</h1>
-      <!-- <hr /> -->
+      <button class=" custom-btn btn-16 listbtn" @click="move">
+        <span>목록으로</span>
+      </button>
+      <button
+        class="custom-btn btn-16 deletebtn"
+        @click="deleteboard(`${storeBoard.num}`)"
+      >
+        <span>글 삭제</span>
+      </button>
       <div class="board">
         <table>
           <tr>

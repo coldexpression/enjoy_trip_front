@@ -27,9 +27,15 @@ export default {
       console.log(this);
       this.$store.dispatch(`${boardStore}/AC_BOARD_DETAIL_INFO_LOAD`, num);
     },
-    move(num) {
+    move() {
       console.log("move 호출");
-      this.$router.push({ name: "boardDetail", params: { num: num } });
+      this.$router.push({ name: "board" });
+    },
+    deleteboard(num) {
+      console.log("delete 호출");
+      console.log(num);
+      this.$store.dispatch(`${boardStore}/AC_BOARD_DELETE`, num);
+      this.$router.push({ name: "board" });
     }
   },
   mounted() {

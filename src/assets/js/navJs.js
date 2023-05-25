@@ -47,12 +47,6 @@ const data = {
       site: "out"
     },
     {
-      img: require("@/assets/img/note.png"),
-      url: "boardRegist",
-      title: "공지사항",
-      site: "in"
-    },
-    {
       img: require("@/assets/img/ai.png"),
       url: "board",
       title: "게시판",

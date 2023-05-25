@@ -7,29 +7,17 @@
             <div class="info">
               <h1>게시글 작성하기</h1>
               <p>
-                작성인<br /><b-form-input
-                  type="text"
-                  name="userID"
-                  v-model.trim="userID"
-                  class="userID"
-                  aria-readonly="true"
-                />
-              </p>
-              <p>
                 제목<br /><b-form-input
                   type="text"
                   name="title"
-                  v-model.trim="title"
-                  class="title"
+                  v-model="board.title"
                 />
               </p>
               <p>
-                내용<br /><b-form-input
-                  type="te"
-                  name="content"
-                  v-model.trim="content"
-                  class="content"
-                />
+                내용<br />
+                <textarea v-model="board.content" type="text" name="content">
+여기에 내용을 입력해주세요!</textarea
+                >
               </p>
               <input type="submit" class="submit" value="게시글 등록" />
             </div>
@@ -41,38 +29,9 @@
 </template>
 
 <script>
-import axios from "axios";
-export default {
-  name: "BoardRegist",
-  components: {},
-  data() {
-    return {
-      board: {
-        userID: "",
-        title: "",
-        content: ""
-      }
-    };
-  },
-
-  created() {
-    //만들자마자 실행됨
-  },
-  methods: {
-    boardRegist() {
-      const url = "http://localhost:9000/api/board/regist";
-      axios
-        .post(url, this.board)
-        .then(() => {
-          alert("등록성공");
-        })
-        .catch(err => {
-          console.log(err);
-          alert("등록 실패");
-        });
-    }
-  }
-};
+import boardregister from "@/assets/js/boardRegist";
+console.log(boardregister);
+export default boardregister;
 </script>
 <style scoped>
 @import "../../assets/css/boardRegist.css";

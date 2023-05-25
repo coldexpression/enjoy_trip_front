@@ -54,6 +54,14 @@ const boardStore = {
         console.log(res.data);
         context.commit("MU_LOAD_BOARD_INFO", res.data);
       });
+    },
+    AC_BOARD_DELETE: (context, payload) => {
+      console.log("AC_BOARD_DELETE");
+      console.log("payload : " + payload);
+      axios.delete(`/board/delete/${payload}`).then(res => {
+        console.log("게시글 삭제");
+        context.dispatch("AC_BOARD_LIST_LOAD");
+      });
     }
   }
 };
