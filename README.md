@@ -91,6 +91,6 @@ npm run start
 
 ## 📝 License
 
-Copyright © 2023 [coldexpression <uni*vers*@naver.com>](https://github.com/coldexpression)<br />
+Copyright © 2023 [coldexpression <uni_vers_@naver.com>](https://github.com/coldexpression)<br />
 
 ---
