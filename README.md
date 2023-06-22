@@ -86,7 +86,7 @@ npm run start
 자세한 기능 및 화면 구성은 해당 링크를 통해 확인이 가능합니다.
 
 <a href="https://www.youtube.com/watch?v=FJThi3K83JE">
-  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+  기능 설명 영상 보기
 </a>
 
 ## 📝 License
